@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component name="null" class="java.lang.String">
+		<meta name="axis-service"/>
+	</component>
+
+	<component name="serviceDef" class="java.lang.String">
+		<meta name="axis-service">
+			<component class="org.seasar.remoting.axis.ServiceDef">
+				<property name="serviceType">@java.lang.Boolean@class</property>
+			</component>
+		</meta>
+	</component>
+
+	<component name="wsdd" class="java.lang.String">
+		<meta name="axis-service">
+			"org/seasar/remoting/axis/deployer/ServiceDeployerTest.createWSDDS2Service.wsdd"
+		</meta>
+	</component>
+
+	<component name="int" class="java.lang.String">
+		<meta name="s2-axis:service">0</meta>
+	</component>
+</components>

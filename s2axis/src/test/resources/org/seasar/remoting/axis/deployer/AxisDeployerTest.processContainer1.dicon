@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<meta name="axis-deploy">"foo.wsdd"</meta>
+	<meta name="s2-axis:deploy">"bar.wsdd"</meta>
+</components>

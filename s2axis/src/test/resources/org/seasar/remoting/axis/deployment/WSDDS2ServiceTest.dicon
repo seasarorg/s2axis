@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component name="no" class="org.seasar.remoting.axis.deployment.WSDDS2ServiceTest$NoInterface"/>
+	<component name="ignore" class="org.seasar.remoting.axis.deployment.WSDDS2ServiceTest$IgnoreInterface"/>
+	<component name="one" class="org.seasar.remoting.axis.deployment.WSDDS2ServiceTest$OneInterface"/>
+	<component name="two" class="org.seasar.remoting.axis.deployment.WSDDS2ServiceTest$TwoInterface"/>
+</components>

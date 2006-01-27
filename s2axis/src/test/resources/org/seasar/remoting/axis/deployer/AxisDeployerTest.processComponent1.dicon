@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component>
+		<meta name="axis-service"/>
+		""
+	</component>
+	<component>
+		<meta name="axis-service"/>
+		""
+	</component>
+	<component>
+		<meta name="s2-axis:handler"/>
+		""
+	</component>
+</components>

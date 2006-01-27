@@ -1,0 +1,2 @@
+org.seasar.remoting.axis.deployment.provider.WSDDS2RPCProvider
+org.seasar.remoting.axis.deployment.provider.WSDDS2MsgProvider

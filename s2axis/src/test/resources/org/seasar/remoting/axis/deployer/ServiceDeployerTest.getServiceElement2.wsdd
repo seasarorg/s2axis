@@ -1,0 +1,13 @@
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+  <handler/>
+  <service name="one" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="className" value="java.lang.Double"/>
+  </service>
+  <handler/>
+  <service name="two" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="className" value="java.lang.Double"/>
+  </service>
+  <handler/>
+</deployment>
