@@ -16,16 +16,21 @@
 package org.seasar.remoting.axis.deployer;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 
 import org.apache.axis.AxisEngine;
+import org.apache.axis.ConfigurationException;
 import org.apache.axis.WSDDEngineConfiguration;
 import org.apache.axis.client.Service;
 import org.apache.axis.deployment.wsdd.WSDDDeployment;
+import org.apache.axis.encoding.TypeMappingImpl;
+import org.apache.axis.utils.JavaUtils;
 import org.seasar.framework.container.ComponentDef;
 import org.seasar.framework.container.MetaDef;
 import org.seasar.framework.container.MetaDefAware;
@@ -57,6 +62,12 @@ public class AxisDeployer implements Deployer {
     protected ItemDeployer serviceDeployer = new ServiceDeployer(this);
     protected ItemDeployer handlerDeployer = new HandlerDeployer(this);
     protected ItemDeployer wsddDeployer = new WSDDDeployer(this);
+    protected ThreadLocal context = new ThreadLocal() {
+
+        protected Object initialValue() {
+            return new HashSet();
+        }
+    };
 
     /**
      * S2コンテナを設定します。
@@ -65,7 +76,7 @@ public class AxisDeployer implements Deployer {
      *            S2コンテナ
      */
     public void setContainer(final S2Container container) {
-        this.container = container;
+        this.container = container.getRoot();
     }
 
     /**
@@ -82,32 +93,52 @@ public class AxisDeployer implements Deployer {
      * コンテナに登録されているサービスやハンドラをデプロイします。
      */
     public void deploy() {
-        forEach(container.getRoot());
+        context.remove();
+        forEach(container);
+
+        final AxisEngine engine = getEngine(container);
+        try {
+            engine.refreshGlobalOptions();
+        }
+        catch (final ConfigurationException e) {
+            throw new DeployFailedException(e);
+        }
+
+        final Object dotnet = engine.getOption(AxisEngine.PROP_DOTNET_SOAPENC_FIX);
+        if (JavaUtils.isTrue(dotnet)) {
+            TypeMappingImpl.dotnet_soapenc_bugfix = true;
+        }
     }
 
     /**
      * コンテナの階層をたどって全てのコンテナとコンポーネント定義を走査します。 <br>
      * 走査する順序は次の通りです。
      * <ol>
-     * <li>コンテナ自身</li>
-     * <li>子のコンポーネント定義</li>
      * <li>子のコンテナを再起的に</li>
+     * <li>コンテナ自身(&lt;components&gt;直下の&lt;meta&gt;要素)</li>
+     * <li>コンポーネント(&lt;component&gt;の下の&lt;meta&gt;要素)</li>
      * </ol>
      * 
      * @param container
      *            起点となるコンテナ
      */
     protected void forEach(final S2Container container) {
+        Set set = (Set) context.get();
+        if (set.contains(container)) {
+            return;
+        }
+        set.add(container);
+
+        final int childContainerSize = container.getChildSize();
+        for (int i = 0; i < childContainerSize; ++i) {
+            forEach(container.getChild(i));
+        }
+
         process(container);
 
         final int componentDefSize = container.getComponentDefSize();
         for (int i = 0; i < componentDefSize; ++i) {
             process(container.getComponentDef(i));
-        }
-
-        final int childContainerSize = container.getChildSize();
-        for (int i = 0; i < childContainerSize; ++i) {
-            forEach(container.getChild(i));
         }
     }
 
