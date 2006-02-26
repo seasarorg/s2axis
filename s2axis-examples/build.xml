@@ -14,8 +14,8 @@
 		<zip destfile="target/S2AxisExamples-${ver}.zip">
 			<zipfileset dir="."
 			            prefix="s2axis-examples"
-			            includes="* src/** WebContent/**"
-			            excludes=".settings target"
+			            includes="* .settings/** src/** WebContent/**"
+			            excludes="target"
 			/>
 		</zip>
 	</target>
