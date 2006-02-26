@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component name="Foo" class="org.seasar.remoting.axis.examples.ex06.FooSoapBindingImpl">
+		<meta name="axis-service">"org/seasar/remoting/axis/examples/ex06/deploy.wsdd"</meta>
+	</component>
+	
+	<component name="fooRequestHandler" class="org.seasar.remoting.axis.examples.ex06.LoggingHandler">
+		<meta name="axis-handler"/>
+
+		<property name="message">"Enter Foo"</property>
+	</component>
+	
+	<component name="fooResponseHandler" class="org.seasar.remoting.axis.examples.ex06.LoggingHandler">
+		<meta name="axis-handler"/>
+
+		<property name="message">"Exit Foo"</property>
+	</component>
+</components>

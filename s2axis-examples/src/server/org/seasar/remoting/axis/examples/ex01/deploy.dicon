@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component name="Echo" class="org.seasar.remoting.axis.examples.ex01.EchoImpl">
+		<meta name="axis-service"/>
+	</component>
+</components>

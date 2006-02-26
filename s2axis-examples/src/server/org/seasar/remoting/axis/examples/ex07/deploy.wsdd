@@ -1,0 +1,8 @@
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+    <service name="EchoHandler" provider="Handler" style="rpc" use="encoded">
+        <parameter name="handlerClass" value="org.apache.axis.handlers.EchoHandler"/>
+    </service>
+</deployment>

@@ -1,0 +1,102 @@
+<project name="S2AxisExamples" default="dist" basedir=".">
+	<property name="ver" value="1.0.1"/>
+
+	<path id="axis.classpath">
+		<pathelement location="build/classes" />
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<taskdef resource="axis-tasks.properties" classpathref="axis.classpath" />
+
+	<target name="dist">
+		<mkdir dir="target" />
+		<zip destfile="target/S2AxisExamples-${ver}.zip">
+			<zipfileset dir="."
+			            prefix="s2axis-examples"
+			            includes="* src/** WebContent/**"
+			            excludes=".settings target"
+			/>
+		</zip>
+	</target>
+
+	<target name="build" depends="ex05,ex06" />
+
+	<target name="ex05">
+		<delete>
+			<fileset dir="src/server/org/seasar/remoting/axis/examples/ex05">
+				<exclude name="Magazine.java" />
+				<exclude name="MagazineSoapBindingImpl.java" />
+				<include name="*.java" />
+				<include name="*.wsdl" />
+				<include name="*.wsdd" />
+			</fileset>
+		</delete>
+		<axis-java2wsdl classname="org.seasar.remoting.axis.examples.ex05.Magazine"
+		                namespace="http://www.seasar.org/axis/examples/ex05"
+		                location="http://localhost:8080/s2-axis-examples/services/Magazine"
+		                output="src/server/org/seasar/remoting/axis/examples/ex05/magazine.wsdl"
+		/>
+		<axis-wsdl2java url="src/server/org/seasar/remoting/axis/examples/ex05/magazine.wsdl"
+		                output="src/server"
+		                serverside="true"
+		>
+			<mapping namespace="http://www.seasar.org/axis/examples/ex05"
+			         package="org.seasar.remoting.axis.examples.ex05"
+			/>
+		</axis-wsdl2java>
+		<move file="src/server/org/seasar/remoting/axis/examples/ex05/MagazineService.java"
+		      todir="src/client/org/seasar/remoting/axis/examples/ex05"
+		/>
+		<move file="src/server/org/seasar/remoting/axis/examples/ex05/MagazineServiceLocator.java"
+		      todir="src/client/org/seasar/remoting/axis/examples/ex05"
+		/>
+		<move file="src/server/org/seasar/remoting/axis/examples/ex05/MagazineSoapBindingStub.java"
+		      todir="src/client/org/seasar/remoting/axis/examples/ex05"
+		/>
+	</target>
+
+	<target name="ex06">
+		<delete>
+			<fileset dir="src/server/org/seasar/remoting/axis/examples/ex06">
+				<exclude name="Foo.java" />
+				<exclude name="LoggingHandler.java" />
+				<include name="*.java" />
+				<include name="*.wsdl" />
+				<include name="*.wsdd" />
+			</fileset>
+		</delete>
+		<axis-java2wsdl classname="org.seasar.remoting.axis.examples.ex06.Foo"
+		                namespace="http://www.seasar.org/axis/examples/ex06"
+		                location="http://localhost:8080/s2-axis-examples/services/Foo"
+		                output="src/server/org/seasar/remoting/axis/examples/ex06/foo.wsdl"
+		/>
+		<axis-wsdl2java url="src/server/org/seasar/remoting/axis/examples/ex06/foo.wsdl"
+		                output="src/server"
+		                serverside="true"
+		>
+			<mapping namespace="http://www.seasar.org/axis/examples/ex06"
+			         package="org.seasar.remoting.axis.examples.ex06"
+			/>
+		</axis-wsdl2java>
+		<move file="src/server/org/seasar/remoting/axis/examples/ex06/FooServiceLocator.java"
+		      todir="src/client/org/seasar/remoting/axis/examples/ex06"
+		/>
+		<move file="src/server/org/seasar/remoting/axis/examples/ex06/FooSoapBindingStub.java"
+		      todir="src/client/org/seasar/remoting/axis/examples/ex06"
+		/>
+		<echo>
+			<![CDATA[
+src/server/org/seasar/remoting/axis/examples/ex06/deploy.wsdd に以下の内容を追加してください．
+
+	<requestFlow>
+			<handler type="fooRequestHandler"/>
+		</requestFlow>
+		<responseFlow>
+			<handler type="fooResponseHandler"/>
+		</responseFlow>
+
+追加する位置は http://s2axis.seasar.org/ja/s2axis.html#ex06 を参照してください．
+		]]></echo>
+	</target>
+</project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<component name="Magazine" class="org.seasar.remoting.axis.examples.ex05.MagazineSoapBindingImpl">
+		<meta name="axis-service">"org/seasar/remoting/axis/examples/ex05/deploy.wsdd"</meta>
+
+		<property name="title">"CanCam"</property>
+		<initMethod name="addModel">
+			<arg>
+				<component class="org.seasar.remoting.axis.examples.ex05.Model">
+					<property name="name">"Yuri Ebihara"</property>
+					<property name="age">25</property>
+				</component>
+			</arg>
+		</initMethod>
+		<initMethod name="addModel">
+			<arg>
+				<component class="org.seasar.remoting.axis.examples.ex05.Model">
+					<property name="name">"Naoko Tokuzawa"</property>
+					<property name="age">20</property>
+				</component>
+			</arg>
+		</initMethod>
+		<initMethod name="addModel">
+			<arg>
+				<component class="org.seasar.remoting.axis.examples.ex05.Model">
+					<property name="name">"Asami Usuda"</property>
+					<property name="age">20</property>
+				</component>
+			</arg>
+		</initMethod>
+	</component>
+</components>
