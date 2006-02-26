@@ -3,6 +3,9 @@
     <wb-module deploy-name="s2axis-examples">
         <wb-resource source-path="/src/server" deploy-path="/WEB-INF/classes"/>
         <wb-resource source-path="/WebContent" deploy-path="/"/>
+        <wb-resource deploy-path="/WEB-INF" source-path="WebContent/WEB-INF"/>
+        <wb-resource deploy-path="/WEB-INF/web.xml" source-path="WebContent/WEB-INF/web.xml"/>
+        <wb-resource deploy-path="/WEB-INF/lib" source-path="WebContent/WEB-INF/lib"/>
         <property name="context-root" value="s2axis-examples"/>
         <property name="java-output-path" value="/target/classes/"/>
     </wb-module>
