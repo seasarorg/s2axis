@@ -8,7 +8,7 @@
   <artifactId>s2axis</artifactId>
   <packaging>jar</packaging>
   <name>S2Axis Project</name>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <description></description>
   <url>http://s2axis.seasar.org/</url>
   <inceptionYear>2005</inceptionYear>
@@ -59,8 +59,8 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <source>1.5</source>
-            <target>1.5</target>
+            <source>1.4</source>
+            <target>1.4</target>
           </configuration>
         </plugin>
       </plugins>
@@ -82,7 +82,7 @@
     <dependency>
       <groupId>org.seasar.remoting</groupId>
       <artifactId>s2remoting</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <version>1.0.0a</version>
       <type>jar</type>
     </dependency>
     <dependency>
