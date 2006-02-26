@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
 
 import org.apache.axis.AxisEngine;
-import org.apache.axis.ConfigurationException;
 import org.apache.axis.WSDDEngineConfiguration;
 import org.apache.axis.client.Service;
 import org.apache.axis.deployment.wsdd.WSDDDeployment;
@@ -93,17 +92,10 @@ public class AxisDeployer implements Deployer {
      * コンテナに登録されているサービスやハンドラをデプロイします。
      */
     public void deploy() {
-        context.remove();
+        ((Set) context.get()).clear();
         forEach(container);
 
         final AxisEngine engine = getEngine(container);
-        try {
-            engine.refreshGlobalOptions();
-        }
-        catch (final ConfigurationException e) {
-            throw new DeployFailedException(e);
-        }
-
         final Object dotnet = engine.getOption(AxisEngine.PROP_DOTNET_SOAPENC_FIX);
         if (JavaUtils.isTrue(dotnet)) {
             TypeMappingImpl.dotnet_soapenc_bugfix = true;

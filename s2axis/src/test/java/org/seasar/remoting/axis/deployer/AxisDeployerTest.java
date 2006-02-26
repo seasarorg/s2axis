@@ -75,6 +75,16 @@ public class AxisDeployerTest extends S2TestCase {
         assertEquals(4, componentDefCount);
     }
 
+    public void testForEach3() {
+        include("AxisDeployerTest.forEach1.dicon");
+        include("AxisDeployerTest.forEach2.dicon");
+        include("AxisDeployerTest.forEach3.dicon");
+        AxisDeployer deployer = new DeployCounter();
+        deployer.forEach(container);
+        assertEquals(4, containerCount);
+        assertEquals(4, componentDefCount);
+    }
+
     public void testProcessContainer0() {
         createTestDeployer().forEach(container);
         assertEquals(0, wsddFileNames.size());
