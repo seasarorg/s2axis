@@ -9,7 +9,7 @@
 
 	<component name="connector" class="org.seasar.remoting.axis.connector.AxisConnector">
 		<property name="baseURL">
-			new java.net.URL("http://localhost:8080/s2axis-examples/services/")
+			"http://localhost:8080/s2axis-examples/services/"
 		</property>
 	</component>
 
