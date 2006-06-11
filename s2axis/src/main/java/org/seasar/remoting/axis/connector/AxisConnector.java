@@ -30,7 +30,7 @@ import org.seasar.remoting.axis.S2AxisConstants;
 import org.seasar.remoting.common.connector.impl.TargetSpecificURLBasedConnector;
 
 /**
- * WebƒT[ƒrƒX‚ğŒÄ‚Ño‚·S2RemotingƒRƒlƒNƒ^‚ÌÀ‘•ƒNƒ‰ƒX‚Å‚·B
+ * Webã‚µãƒ¼ãƒ“ã‚¹ã‚’å‘¼ã³å‡ºã™S2Remotingã‚³ãƒã‚¯ã‚¿ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
  * @author koichik
  */
@@ -40,10 +40,10 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
     protected Service service;
 
     /**
-     * AxisƒT[ƒrƒX‚ğİ’è‚µ‚Ü‚·B
+     * Axisã‚µãƒ¼ãƒ“ã‚¹ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param service
-     *            AxisƒT[ƒrƒX
+     *            Axisã‚µãƒ¼ãƒ“ã‚¹
      */
     public void setService(final Service service) {
         this.service = service;
@@ -54,17 +54,17 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
     }
 
     /**
-     * AxisƒT[ƒrƒX‚ğg—p‚µ‚ÄƒŠƒ‚[ƒgƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚ğÀs‚µA‚»‚ÌŒ‹‰Ê‚ğ•Ô‚µ‚Ü‚·B
+     * Axisã‚µãƒ¼ãƒ“ã‚¹ã‚’ä½¿ç”¨ã—ã¦ãƒªãƒ¢ãƒ¼ãƒˆãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ã‚’å®Ÿè¡Œã—ã€ãã®çµæœã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param targetURL
-     *            ƒŠƒ‚[ƒgƒIƒuƒWƒFƒNƒg‚ÌURL
+     *            ãƒªãƒ¢ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®URL
      * @param method
-     *            ŒÄ‚Ño‚·ƒƒ\ƒbƒh
+     *            å‘¼ã³å‡ºã™ãƒ¡ã‚½ãƒƒãƒ‰
      * @param args
-     *            ƒŠƒ‚[ƒgƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒhŒÄ‚Ño‚µ‚É“n‚³‚ê‚éˆø”’l‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒg”z—ñ
-     * @return ƒŠƒ‚[ƒgƒIƒuƒWƒFƒNƒg‚É‘Î‚·‚éƒƒ\ƒbƒhŒÄ‚Ño‚µ‚©‚ç‚Ì–ß‚è’l
+     *            ãƒªãƒ¢ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ã«æ¸¡ã•ã‚Œã‚‹å¼•æ•°å€¤ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé…åˆ—
+     * @return ãƒªãƒ¢ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ã‹ã‚‰ã®æˆ»ã‚Šå€¤
      * @throws Throwable
-     *             ƒŠƒ‚[ƒgƒIƒuƒWƒFƒNƒg‚É‘Î‚·‚éƒƒ\ƒbƒhŒÄ‚Ño‚µ‚©‚çƒXƒ[‚³‚ê‚é—áŠO
+     *             ãƒªãƒ¢ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ã‹ã‚‰ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–
      */
     protected Object invoke(final URL targetURL, final Method method, final Object[] args)
             throws Throwable {

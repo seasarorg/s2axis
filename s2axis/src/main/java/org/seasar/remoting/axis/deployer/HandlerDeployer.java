@@ -21,7 +21,7 @@ import org.seasar.framework.log.Logger;
 import org.seasar.remoting.axis.deployment.WSDDS2Handler;
 
 /**
- * diconƒtƒ@ƒCƒ‹’†‚É‹Lq‚³‚ê‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ðƒnƒ“ƒhƒ‰‚Æ‚µ‚ÄAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+ * diconãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã«è¨˜è¿°ã•ã‚ŒãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ãƒãƒ³ãƒ‰ãƒ©ã¨ã—ã¦Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
  * 
  * @author koichik
  */
@@ -34,22 +34,22 @@ public class HandlerDeployer implements ItemDeployer {
     protected AxisDeployer deployer;
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param deployer
-     *            ƒfƒvƒƒCƒ„[
+     *            ãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¤ãƒ¼
      */
     public HandlerDeployer(final AxisDeployer deployer) {
         this.deployer = deployer;
     }
 
     /**
-     * ƒRƒ“ƒ|[ƒlƒ“ƒg‚ðƒnƒ“ƒhƒ‰‚Æ‚µ‚ÄƒfƒvƒƒC‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ãƒãƒ³ãƒ‰ãƒ©ã¨ã—ã¦ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      * @param metaDef
-     *            ƒƒ^’è‹`
+     *            ãƒ¡ã‚¿å®šç¾©
      */
     public void deploy(final ComponentDef componentDef, final MetaDef metaDef) {
         final WSDDS2Handler handler = new WSDDS2Handler(componentDef);

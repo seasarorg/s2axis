@@ -27,7 +27,7 @@ import org.seasar.framework.util.ResourceUtil;
 import org.seasar.remoting.axis.DeployFailedException;
 
 /**
- * diconƒtƒ@ƒCƒ‹’†‚É‹Lq‚³‚ê‚½ƒƒ^î•ñ‚ÅŽw’è‚³‚ê‚½WSDDƒtƒ@ƒCƒ‹‚ðAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+ * diconãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã«è¨˜è¿°ã•ã‚ŒãŸãƒ¡ã‚¿æƒ…å ±ã§æŒ‡å®šã•ã‚ŒãŸWSDDãƒ•ã‚¡ã‚¤ãƒ«ã‚’Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
  * 
  * @author koichik
  */
@@ -40,22 +40,22 @@ public class WSDDDeployer implements ItemDeployer {
     protected final AxisDeployer deployer;
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param deployer
-     *            ƒfƒvƒƒCƒ„[
+     *            ãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¤ãƒ¼
      */
     public WSDDDeployer(final AxisDeployer deployer) {
         this.deployer = deployer;
     }
 
     /**
-     * ƒƒ^î•ñ‚ÅŽw’è‚³‚ê‚½WSDDƒtƒ@ƒCƒ‹‚ðƒfƒvƒƒC‚µ‚Ü‚·B
+     * ãƒ¡ã‚¿æƒ…å ±ã§æŒ‡å®šã•ã‚ŒãŸWSDDãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      * @param metaDef
-     *            ƒƒ^’è‹`
+     *            ãƒ¡ã‚¿å®šç¾©
      */
     public void deploy(final ComponentDef componentDef, final MetaDef metaDef) {
         try {

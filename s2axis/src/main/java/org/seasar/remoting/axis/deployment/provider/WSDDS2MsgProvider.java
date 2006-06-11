@@ -24,31 +24,31 @@ import org.seasar.remoting.axis.deployment.WSDDS2Service;
 import org.seasar.remoting.axis.providers.S2MsgProvider;
 
 /**
- * S2ƒRƒ“ƒeƒi‚©‚çMSGŒ^‚ÌƒT[ƒrƒXÀ‘•‚ğæ“¾‚·‚éƒvƒƒoƒCƒ_‚Ìƒtƒ@ƒNƒgƒŠ‚Å‚·B <br>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍA <code>s2-axis.jar</code> ƒtƒ@ƒCƒ‹’†‚Ì
+ * S2ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰MSGå‹ã®ã‚µãƒ¼ãƒ“ã‚¹å®Ÿè£…ã‚’å–å¾—ã™ã‚‹ãƒ—ãƒ­ãƒã‚¤ãƒ€ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã§ã™ã€‚ <br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ <code>s2-axis.jar</code> ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã®
  * <code>META-INF/services/org.apache.axis.deployment.wsdd.Provider</code>
- * ‚É‹Lq‚³‚ê‚é‚±‚Æ‚É‚æ‚èA <code>org.apache.axis.wsdd.WSDDProvider</code> ‚É“o˜^‚³‚ê‚Ü‚·B
+ * ã«è¨˜è¿°ã•ã‚Œã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ <code>org.apache.axis.wsdd.WSDDProvider</code> ã«ç™»éŒ²ã•ã‚Œã¾ã™ã€‚
  * 
  * @author koichik
  */
 public class WSDDS2MsgProvider extends WSDDProvider {
 
     /**
-     * ‚±‚ÌƒvƒƒoƒCƒ_‚ğ¯•Ê‚·‚éƒ[ƒJƒ‹–¼‚ğ•Ô‚µ‚Ü‚·B
+     * ã“ã®ãƒ—ãƒ­ãƒã‚¤ãƒ€ã‚’è­˜åˆ¥ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«åã‚’è¿”ã—ã¾ã™ã€‚
      * 
-     * @return ‚±‚ÌƒvƒƒoƒCƒ_‚ğ¯•Ê‚·‚éƒ[ƒJƒ‹–¼
+     * @return ã“ã®ãƒ—ãƒ­ãƒã‚¤ãƒ€ã‚’è­˜åˆ¥ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«å
      */
     public String getName() {
         return S2AxisConstants.PROVIDER_S2MSG;
     }
 
     /**
-     * V‚µ‚¢ƒvƒƒoƒCƒ_‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ä•Ô‚µ‚Ü‚·B
+     * æ–°ã—ã„ãƒ—ãƒ­ãƒã‚¤ãƒ€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¦è¿”ã—ã¾ã™ã€‚
      * 
      * @param service
-     *            WSDDS2Service‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+     *            WSDDS2Serviceã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      * @param registry
-     *            ƒnƒ“ƒhƒ‰‚ÌƒŒƒWƒXƒgƒŠ
+     *            ãƒãƒ³ãƒ‰ãƒ©ã®ãƒ¬ã‚¸ã‚¹ãƒˆãƒª
      */
     public Handler newProviderInstance(final WSDDService service, final EngineConfiguration registry)
             throws Exception {

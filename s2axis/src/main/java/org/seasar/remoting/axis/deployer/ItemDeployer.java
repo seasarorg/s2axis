@@ -19,19 +19,19 @@ import org.seasar.framework.container.ComponentDef;
 import org.seasar.framework.container.MetaDef;
 
 /**
- * �l�X�ȗv�f��Axis�Ƀf�v���C���邽�߂̃C���^�t�F�[�X�ł��B
+ * 様々な要素をAxisにデプロイするためのインタフェースです。
  * 
  * @author koichik
  */
 public interface ItemDeployer {
 
     /**
-     * �w�肳�ꂽ�v�f���f�v���C���܂��B
+     * 指定された要素をデプロイします。
      * 
      * @param componentDef
-     *            �R���|�[�l���g��`
+     *            コンポーネント定義
      * @param metaDef
-     *            ���^��`
+     *            メタ定義
      */
     void deploy(ComponentDef componentDef, MetaDef metaDef);
 }

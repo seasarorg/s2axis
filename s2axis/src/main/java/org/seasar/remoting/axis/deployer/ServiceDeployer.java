@@ -35,7 +35,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * diconƒtƒ@ƒCƒ‹’†‚É‹Lq‚³‚ê‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğƒT[ƒrƒX‚Æ‚µ‚ÄAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+ * diconãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã«è¨˜è¿°ã•ã‚ŒãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ã‚µãƒ¼ãƒ“ã‚¹ã¨ã—ã¦Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
  * 
  * @author koichik
  */
@@ -48,22 +48,22 @@ public class ServiceDeployer implements ItemDeployer {
     protected final AxisDeployer deployer;
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param deployer
-     *            ƒfƒvƒƒCƒ„[
+     *            ãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¤ãƒ¼
      */
     public ServiceDeployer(final AxisDeployer deployer) {
         this.deployer = deployer;
     }
 
     /**
-     * ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğƒT[ƒrƒX‚Æ‚µ‚ÄƒfƒvƒƒC‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ã‚µãƒ¼ãƒ“ã‚¹ã¨ã—ã¦ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      * @param metaDef
-     *            ƒƒ^’è‹`
+     *            ãƒ¡ã‚¿å®šç¾©
      */
     public void deploy(final ComponentDef componentDef, final MetaDef metaDef) {
         final WSDDS2Service service = createWSDDS2Service(componentDef, metaDef);
@@ -75,14 +75,14 @@ public class ServiceDeployer implements ItemDeployer {
     }
 
     /**
-     * <code>WSDDS2Service</code> ‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Ä•Ô‚µ‚Ü‚·B <br>
-     * ƒƒ^ƒf[ƒ^‚Ìw’è‚É]‚¢A <code>ServiceDef</code> ‚Ü‚½‚ÍWSDDƒtƒ@ƒCƒ‹‚©‚ç
-     * <code>WSDDS2Service</code> ‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Ü‚·B
+     * <code>WSDDS2Service</code> ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦è¿”ã—ã¾ã™ã€‚ <br>
+     * ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã®æŒ‡å®šã«å¾“ã„ã€ <code>ServiceDef</code> ã¾ãŸã¯WSDDãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰
+     * <code>WSDDS2Service</code> ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      * @param metaDef
-     *            ƒƒ^ƒf[ƒ^’è‹`
+     *            ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿å®šç¾©
      * @return <code>WSDDS2Service</code>
      */
     protected WSDDS2Service createWSDDS2Service(final ComponentDef componentDef,
@@ -106,11 +106,11 @@ public class ServiceDeployer implements ItemDeployer {
     }
 
     /**
-     * WSDDƒtƒ@ƒCƒ‹‚ğƒNƒ‰ƒXƒpƒX‚©‚ç“Ç‚İ‚İA <code>&lt;service&gt;</code> —v‘f‚ğ•Ô‚µ‚Ü‚·B
+     * WSDDãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã‹ã‚‰èª­ã¿è¾¼ã¿ã€ <code>&lt;service&gt;</code> è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param wsddFileName
-     *            WSDDƒtƒ@ƒCƒ‹‚ÌƒpƒX–¼
-     * @return <code>&lt;service&gt;</code> —v‘f
+     *            WSDDãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹å
+     * @return <code>&lt;service&gt;</code> è¦ç´ 
      */
     protected Element getServiceElement(final String wsddFileName) {
         try {
@@ -133,13 +133,13 @@ public class ServiceDeployer implements ItemDeployer {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒ[ƒJƒ‹–¼‚ğ‚Âq—v‘f‚Ì”z—ñ‚ğ•Ô‚µ‚Ü‚·B
+     * æŒ‡å®šã•ã‚ŒãŸãƒ­ãƒ¼ã‚«ãƒ«åã‚’æŒã¤å­è¦ç´ ã®é…åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param parent
-     *            e—v‘f
+     *            è¦ªè¦ç´ 
      * @param name
-     *            q—v‘f‚Ìƒ[ƒJƒ‹–¼
-     * @return w’è‚³‚ê‚½ƒ[ƒJƒ‹–¼‚ğ‚Âq—v‘f‚Ì”z—ñBŠY“–‚·‚éq—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚Í‹ó‚Ì”z—ñB
+     *            å­è¦ç´ ã®ãƒ­ãƒ¼ã‚«ãƒ«å
+     * @return æŒ‡å®šã•ã‚ŒãŸãƒ­ãƒ¼ã‚«ãƒ«åã‚’æŒã¤å­è¦ç´ ã®é…åˆ—ã€‚è©²å½“ã™ã‚‹å­è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ç©ºã®é…åˆ—ã€‚
      */
     protected Element[] getChildElements(final Element parent, final String name) {
         final List result = new ArrayList();

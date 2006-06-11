@@ -26,7 +26,7 @@ import org.seasar.framework.container.ContainerConstants;
 import org.seasar.framework.util.StringUtil;
 
 /**
- * S2‚É‚æ‚èƒCƒ“ƒXƒ^ƒ“ƒXŠÇ—‚³‚ê‚éƒnƒ“ƒhƒ‰‚ÌWSDD‚É‚æ‚é•\Œ»‚Å‚·B
+ * S2ã«ã‚ˆã‚Šã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç®¡ç†ã•ã‚Œã‚‹ãƒãƒ³ãƒ‰ãƒ©ã®WSDDã«ã‚ˆã‚‹è¡¨ç¾ã§ã™ã€‚
  * 
  * @author koichik
  */
@@ -39,10 +39,10 @@ public class WSDDS2Handler extends WSDDHandler {
     protected ComponentDef componentDef;
 
     /**
-     * ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`‚©‚çƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©ã‹ã‚‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      */
     public WSDDS2Handler(final ComponentDef componentDef) {
         this.componentDef = componentDef;
@@ -58,11 +58,11 @@ public class WSDDS2Handler extends WSDDHandler {
     }
 
     /**
-     * ƒnƒ“ƒhƒ‰‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð•Ô‚µ‚Ü‚·B
+     * ãƒãƒ³ãƒ‰ãƒ©ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param registry
-     *            ƒŒƒWƒXƒgƒŠ
-     * @return ƒnƒ“ƒhƒ‰
+     *            ãƒ¬ã‚¸ã‚¹ãƒˆãƒª
+     * @return ãƒãƒ³ãƒ‰ãƒ©
      */
     protected Handler makeNewInstance(final EngineConfiguration registry)
             throws ConfigurationException {

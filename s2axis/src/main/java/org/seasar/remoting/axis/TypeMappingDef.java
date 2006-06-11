@@ -20,7 +20,7 @@ import org.apache.axis.encoding.ser.BeanDeserializerFactory;
 import org.apache.axis.encoding.ser.BeanSerializerFactory;
 
 /**
- * dicon�t�@�C�����Ń^�C�v�}�b�s���O����ݒ肷�邽�߂Ɏg���܂��B
+ * diconファイル中でタイプマッピング情報を設定するために使われます。
  * 
  * @see ServiceDef#addTypeMapping(TypeMappingDef)
  * @author koichik
@@ -37,7 +37,7 @@ public class TypeMappingDef {
     protected String encodingStyle = Constants.URI_DEFAULT_SOAP_ENC;
 
     /**
-     * Java�^��Ԃ��܂��B
+     * Java型を返します。
      * 
      * @return Returns the type.
      */
@@ -46,7 +46,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * Java�^��ݒ肵�܂��B
+     * Java型を設定します。
      * 
      * @param type
      *            The type to set.
@@ -56,7 +56,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̖��O���URI��Ԃ��܂��B
+     * XML型の名前空間URIを返します。
      * 
      * @return Returns the namespaceURI.
      */
@@ -65,7 +65,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̖��O���URI��ݒ肵�܂��B
+     * XML型の名前空間URIを設定します。
      * 
      * @param namespaceURI
      *            The namespaceURI to set.
@@ -75,7 +75,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̃��[�J������Ԃ��܂��B
+     * XML型のローカル名を返します。
      * 
      * @return Returns the localPart.
      */
@@ -84,7 +84,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̃��[�J������ݒ肵�܂��B
+     * XML型のローカル名を設定します。
      * 
      * @param localPart
      *            The localPart to set.
@@ -94,7 +94,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̖��O��Ԑړ�����Ԃ��܂��B
+     * XML型の名前空間接頭辞を返します。
      * 
      * @return Returns the namespacePrefix.
      */
@@ -103,7 +103,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^�̖��O��Ԑړ�����ݒ肵�܂��B
+     * XML型の名前空間接頭辞を設定します。
      * 
      * @param namespacePrefix
      *            The namespacePrefix to set.
@@ -113,7 +113,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * Java�^����XML�^�ւ̃V���A���C�U��Ԃ��܂��B
+     * Java型からXML型へのシリアライザを返します。
      * 
      * @return Returns the serializer.
      */
@@ -122,7 +122,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * Java�^����XML�^�ւ̃V���A���C�U��ݒ肵�܂��B
+     * Java型からXML型へのシリアライザを設定します。
      * 
      * @param serializer
      *            The serializer to set.
@@ -132,7 +132,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^����Java�^�ւ̃f�V���A���C�U��Ԃ��܂��B
+     * XML型からJava型へのデシリアライザを返します。
      * 
      * @return Returns the deserializer.
      */
@@ -141,7 +141,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * XML�^����Java�^�ւ̃f�V���A���C�U��ݒ肵�܂��B
+     * XML型からJava型へのデシリアライザを設定します。
      * 
      * @param deserializer
      *            The deserializer to set.
@@ -151,7 +151,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * �G���R�[�f�B���O�X�^�C����Ԃ��܂��B
+     * エンコーディングスタイルを返します。
      * 
      * @return Returns the encodingStyle.
      */
@@ -160,7 +160,7 @@ public class TypeMappingDef {
     }
 
     /**
-     * �G���R�[�f�B���O�X�^�C����ݒ肵�܂��B
+     * エンコーディングスタイルを設定します。
      * 
      * @param encodingStyle
      *            The encodingStyle to set.

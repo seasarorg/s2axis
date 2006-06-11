@@ -16,83 +16,83 @@
 package org.seasar.remoting.axis;
 
 /**
- * S2Axis‚ÅŽg—p‚·‚é’è”‚Å‚·B
+ * S2Axisã§ä½¿ç”¨ã™ã‚‹å®šæ•°ã§ã™ã€‚
  * 
  * @author koichik
  */
 public interface S2AxisConstants {
 
     /**
-     * ƒIƒyƒŒ[ƒVƒ‡ƒ“–¼‚Ì–¼‘O‹óŠÔURI
+     * ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³åã®åå‰ç©ºé–“URI
      */
     String OPERATION_NAMESPACE_URI = "http://soapinterop.org/";
 
     /**
-     * diconƒtƒ@ƒCƒ‹‚ÅAŽg—p‚·‚éAxisƒGƒ“ƒWƒ“‚ðŽwŽ¦‚·‚é‚½‚ß‚É <code>&lt;meta&gt;</code> —v‘f‚ÉŽw’è‚·‚é
-     * <code>name</code> ‘®«’l‚Ìƒ[ƒJƒ‹–¼(Ú“ªŽ« <code>"axis-"</code> ‚ÌŒã‚ë)‚Å‚·B
+     * diconãƒ•ã‚¡ã‚¤ãƒ«ã§ã€ä½¿ç”¨ã™ã‚‹Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’æŒ‡ç¤ºã™ã‚‹ãŸã‚ã« <code>&lt;meta&gt;</code> è¦ç´ ã«æŒ‡å®šã™ã‚‹
+     * <code>name</code> å±žæ€§å€¤ã®ãƒ­ãƒ¼ã‚«ãƒ«å(æŽ¥é ­è¾ž <code>"axis-"</code> ã®å¾Œã‚)ã§ã™ã€‚
      */
     String META_ENGINE = "engine";
 
     /**
-     * diconƒtƒ@ƒCƒ‹‚ÅAWSDDƒtƒ@ƒCƒ‹‚ðƒfƒvƒƒC‚·‚é‚ðŽwŽ¦‚·‚é‚½‚ß‚É <code>&lt;meta&gt;</code> —v‘f‚ÉŽw’è‚·‚é
-     * <code>name</code> ‘®«’l‚Ìƒ[ƒJƒ‹–¼(Ú“ªŽ« <code>"axis-"</code> ‚ÌŒã‚ë)‚Å‚·B
+     * diconãƒ•ã‚¡ã‚¤ãƒ«ã§ã€WSDDãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‡ãƒ—ãƒ­ã‚¤ã™ã‚‹ã‚’æŒ‡ç¤ºã™ã‚‹ãŸã‚ã« <code>&lt;meta&gt;</code> è¦ç´ ã«æŒ‡å®šã™ã‚‹
+     * <code>name</code> å±žæ€§å€¤ã®ãƒ­ãƒ¼ã‚«ãƒ«å(æŽ¥é ­è¾ž <code>"axis-"</code> ã®å¾Œã‚)ã§ã™ã€‚
      */
     String META_DEPLOY = "deploy";
 
     /**
-     * diconƒtƒ@ƒCƒ‹‚ÅAƒRƒ“ƒ|[ƒlƒ“ƒg‚ªAxisƒT[ƒrƒX‚Å‚ ‚é‚±‚Æ‚ðŽ¦‚·‚½‚ß‚É <code>&lt;meta&gt;</code>
-     * —v‘f‚ÉŽw’è‚·‚é <code>name</code> ‘®«’l‚Ìƒ[ƒJƒ‹–¼(Ú“ªŽ« <code>"axis-"</code> ‚ÌŒã‚ë)‚Å‚·B
+     * diconãƒ•ã‚¡ã‚¤ãƒ«ã§ã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒAxisã‚µãƒ¼ãƒ“ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™ãŸã‚ã« <code>&lt;meta&gt;</code>
+     * è¦ç´ ã«æŒ‡å®šã™ã‚‹ <code>name</code> å±žæ€§å€¤ã®ãƒ­ãƒ¼ã‚«ãƒ«å(æŽ¥é ­è¾ž <code>"axis-"</code> ã®å¾Œã‚)ã§ã™ã€‚
      */
     String META_SERVICE = "service";
 
     /**
-     * diconƒtƒ@ƒCƒ‹‚ÅAƒRƒ“ƒ|[ƒlƒ“ƒg‚ªAxisƒnƒ“ƒhƒ‰‚Å‚ ‚é‚±‚Æ‚ðŽ¦‚·‚½‚ß‚É <code>&lt;meta&gt;</code>
-     * —v‘f‚ÉŽw’è‚·‚é <code>name</code> ‘®«’l‚Ìƒ[ƒJƒ‹–¼(Ú“ªŽ« <code>"axis-"</code> ‚ÌŒã‚ë)‚Å‚·B
+     * diconãƒ•ã‚¡ã‚¤ãƒ«ã§ã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒAxisãƒãƒ³ãƒ‰ãƒ©ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™ãŸã‚ã« <code>&lt;meta&gt;</code>
+     * è¦ç´ ã«æŒ‡å®šã™ã‚‹ <code>name</code> å±žæ€§å€¤ã®ãƒ­ãƒ¼ã‚«ãƒ«å(æŽ¥é ­è¾ž <code>"axis-"</code> ã®å¾Œã‚)ã§ã™ã€‚
      */
     String META_HANDLER = "handler";
 
     /**
-     * S2Axis‚ªƒCƒ“ƒXƒ^ƒ“ƒXŠÇ—‚ðs‚¤RPCƒvƒƒoƒCƒ_‚Ìƒ[ƒJƒ‹–¼‚Å‚·B
+     * S2AxisãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç®¡ç†ã‚’è¡Œã†RPCãƒ—ãƒ­ãƒã‚¤ãƒ€ã®ãƒ­ãƒ¼ã‚«ãƒ«åã§ã™ã€‚
      */
     String PROVIDER_S2RPC = "S2RPC";
 
     /**
-     * S2Axis‚ªƒCƒ“ƒXƒ^ƒ“ƒXŠÇ—‚ðs‚¤MSGƒvƒƒoƒCƒ_‚Ìƒ[ƒJƒ‹–¼‚Å‚·B
+     * S2AxisãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç®¡ç†ã‚’è¡Œã†MSGãƒ—ãƒ­ãƒã‚¤ãƒ€ã®ãƒ­ãƒ¼ã‚«ãƒ«åã§ã™ã€‚
      */
     String PROVIDER_S2MSG = "S2MSG";
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚ÌAxisƒGƒ“ƒWƒ“‚ðŽg—p‚·‚é‚±‚Æ‚ðŽ¦‚µ‚Ü‚·B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚
      */
     String ENGINE_DEFAULT = "default";
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚ÌAxisƒNƒ‰ƒCƒAƒ“ƒgƒGƒ“ƒWƒ“‚ðŽg—p‚·‚é‚±‚Æ‚ðŽ¦‚µ‚Ü‚·B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Axisã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚
      */
     String ENGINE_DEFAULT_CLIENT = "default-client";
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚ÌAxisƒT[ƒoƒGƒ“ƒWƒ“‚ðŽg—p‚·‚é‚±‚Æ‚ðŽ¦‚µ‚Ü‚·B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Axisã‚µãƒ¼ãƒã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚
      */
     String ENGINE_DEFAULT_SERVER = "default-server";
 
     /**
-     * ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚©‚çAxisƒGƒ“ƒWƒ“‚ðŽæ“¾‚·‚é‚±‚Æ‚ðŽ¦‚µ‚Ü‚·B
+     * ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚
      */
     String ENGINE_FROM_SERVLET = "servlet:";
 
     /**
-     * S2ƒRƒ“ƒeƒi‚©‚çAxisƒGƒ“ƒWƒ“‚ðŽæ“¾‚·‚é‚±‚Æ‚ðŽ¦‚µ‚Ü‚·B
+     * S2ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚
      */
     String ENGINE_FROM_S2CONTAINER = "s2:";
 
     /**
-     * AxisServlet‚ÌƒT[ƒuƒŒƒbƒg–¼‚Å‚·B
+     * AxisServletã®ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆåã§ã™ã€‚
      */
     String AXIS_SERVLET = "AxisServlet";
 
     /**
-     * ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚©‚çAxisƒGƒ“ƒWƒ“‚ðŽæ“¾‚·‚é‚½‚ß‚ÌƒL[‚Å‚·B
+     * ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’å–å¾—ã™ã‚‹ãŸã‚ã®ã‚­ãƒ¼ã§ã™ã€‚
      */
     String ATTR_AXIS_ENGINE = "AxisEngine";
 }

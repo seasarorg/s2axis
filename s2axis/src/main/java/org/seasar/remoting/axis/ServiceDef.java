@@ -22,7 +22,7 @@ import java.util.List;
 import org.apache.axis.deployment.wsdd.WSDDConstants;
 
 /**
- * dicon�t�@�C������Axis�T�[�r�X�̏���ݒ肷�邽�߂Ɏg���܂��B
+ * diconファイル中でAxisサービスの情報を設定するために使われます。
  * 
  * @author koichik
  */
@@ -35,7 +35,7 @@ public class ServiceDef {
     protected final List typeMappingDefs = new ArrayList();
 
     /**
-     * �v���o�C�_��Ԃ��܂��B
+     * プロバイダを返します。
      * 
      * @return Returns the providerType.
      */
@@ -44,7 +44,7 @@ public class ServiceDef {
     }
 
     /**
-     * �v���o�C�_���w�肵�܂��B
+     * プロバイダを指定します。
      * 
      * @param providerType
      *            The providerType to set.
@@ -54,7 +54,7 @@ public class ServiceDef {
     }
 
     /**
-     * �T�[�r�X�̌^��Ԃ��܂��B
+     * サービスの型を返します。
      * 
      * @return Returns the serviceType.
      */
@@ -63,7 +63,7 @@ public class ServiceDef {
     }
 
     /**
-     * �T�[�r�X�̌^��ݒ肵�܂��B
+     * サービスの型を設定します。
      * 
      * @param serviceType
      *            The serviceType to set.
@@ -73,7 +73,7 @@ public class ServiceDef {
     }
 
     /**
-     * �T�[�r�X�Ƃ��Č��J���郁�\�b�h��Ԃ��܂��B
+     * サービスとして公開するメソッドを返します。
      * 
      * @return Returns the allowedMethods.
      */
@@ -82,7 +82,7 @@ public class ServiceDef {
     }
 
     /**
-     * �T�[�r�X�Ƃ��Č��J���郁�\�b�h��ݒ肵�܂��B
+     * サービスとして公開するメソッドを設定します。
      * 
      * @param allowedMethods
      *            The allowedMethods to set.
@@ -92,7 +92,7 @@ public class ServiceDef {
     }
 
     /**
-     * �^�C�v�}�b�s���O��ǉ����܂��B
+     * タイプマッピングを追加します。
      * 
      * @param typeMappingDef
      */
@@ -101,7 +101,7 @@ public class ServiceDef {
     }
 
     /**
-     * �^�C�v�}�b�s���O�̃C�e���[�^��Ԃ��܂��B
+     * タイプマッピングのイテレータを返します。
      * 
      * @return Returns the TypeMappings.
      */

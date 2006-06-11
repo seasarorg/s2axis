@@ -16,7 +16,7 @@
 package org.seasar.remoting.axis;
 
 /**
- * Axis‚Ö‚ÌƒfƒvƒƒC‚ªŽ¸”s‚µ‚½ê‡‚ÉƒXƒ[‚³‚ê‚Ü‚·B
+ * Axisã¸ã®ãƒ‡ãƒ—ãƒ­ã‚¤ãŒå¤±æ•—ã—ãŸå ´åˆã«ã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
  * 
  * @author koichik
  */
@@ -26,13 +26,13 @@ public class DeployFailedException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      */
     public DeployFailedException() {
     }
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param message
      */
@@ -41,7 +41,7 @@ public class DeployFailedException extends RuntimeException {
     }
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param cause
      */
@@ -50,7 +50,7 @@ public class DeployFailedException extends RuntimeException {
     }
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ð\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param message
      * @param cause

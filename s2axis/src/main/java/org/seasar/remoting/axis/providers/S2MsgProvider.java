@@ -20,7 +20,7 @@ import org.apache.axis.providers.java.MsgProvider;
 import org.seasar.framework.container.ComponentDef;
 
 /**
- * RPCƒT[ƒrƒX‚ÌÀ‘•‚ğS2ƒRƒ“ƒeƒi‚©‚çæ“¾‚·‚éƒvƒƒoƒCƒ_‚Å‚·B
+ * RPCã‚µãƒ¼ãƒ“ã‚¹ã®å®Ÿè£…ã‚’S2ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰å–å¾—ã™ã‚‹ãƒ—ãƒ­ãƒã‚¤ãƒ€ã§ã™ã€‚
  * 
  * @author koichik
  */
@@ -33,22 +33,22 @@ public class S2MsgProvider extends MsgProvider {
     protected final ComponentDef componentDef;
 
     /**
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ\’z‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      */
     public S2MsgProvider(final ComponentDef componentDef) {
         this.componentDef = componentDef;
     }
 
     /**
-     * ƒT[ƒrƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·B
+     * ã‚µãƒ¼ãƒ“ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param msgContext
-     *            ƒƒbƒZ[ƒWƒRƒ“ƒeƒLƒXƒg
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
      * @param className
-     *            ƒNƒ‰ƒX–¼
+     *            ã‚¯ãƒ©ã‚¹å
      */
     protected Object makeNewServiceObject(final MessageContext msgContext, final String className) {
         return componentDef.getComponent();

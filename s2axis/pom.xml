@@ -8,7 +8,7 @@
   <artifactId>s2axis</artifactId>
   <packaging>jar</packaging>
   <name>S2Axis Project</name>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <description></description>
   <url>http://s2axis.seasar.org/</url>
   <inceptionYear>2005</inceptionYear>
@@ -61,10 +61,42 @@
           <configuration>
             <source>1.4</source>
             <target>1.4</target>
+            <encoding>UTF-8</encoding>
           </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>source-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <charset>UTF-8</charset>
+          <docencoding>UTF-8</docencoding>
+          <encoding>UTF-8</encoding>
+        </configuration>
+        <executions>
+          <execution>
+            <id>javadoc-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
   <repositories>
     <repository>

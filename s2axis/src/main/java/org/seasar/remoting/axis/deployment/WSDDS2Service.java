@@ -45,7 +45,7 @@ import org.seasar.remoting.axis.TypeMappingDef;
 import org.w3c.dom.Element;
 
 /**
- * S2�ɂ��C���X�^���X�Ǘ������T�[�r�X��WSDD�ɂ��\���ł��B
+ * S2によりインスタンス管理されるサービスのWSDDによる表現です。
  * 
  * @author koichik
  */
@@ -65,26 +65,26 @@ public class WSDDS2Service extends WSDDService {
     protected final ComponentDef componentDef;
 
     /**
-     * �R���|�[�l���g��`����C���X�^���X���\�z���܂��B
+     * コンポーネント定義からインスタンスを構築します。
      * 
      * @param componentDef
-     *            �R���|�[�l���g��`
+     *            コンポーネント定義
      * @throws WSDDException
-     *             �C���X�^���X�̍\�z�Ɏ��s�����ꍇ�ɃX���[����܂��B
+     *             インスタンスの構築に失敗した場合にスローされます。
      */
     public WSDDS2Service(final ComponentDef componentDef) throws WSDDException {
         this(componentDef, new ServiceDef());
     }
 
     /**
-     * �R���|�[�l���g��`�ƃT�[�r�X��`����C���X�^���X���\�z���܂��B
+     * コンポーネント定義とサービス定義からインスタンスを構築します。
      * 
      * @param componentDef
-     *            �R���|�[�l���g��`
+     *            コンポーネント定義
      * @param serviceDef
-     *            �T�[�r�X��`
+     *            サービス定義
      * @throws WSDDException
-     *             �C���X�^���X�̍\�z�Ɏ��s�����ꍇ�ɃX���[����܂��B
+     *             インスタンスの構築に失敗した場合にスローされます。
      */
     public WSDDS2Service(final ComponentDef componentDef, final ServiceDef serviceDef)
             throws WSDDException {
@@ -129,16 +129,16 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * �R���|�[�l���g��`��WSDD�t�@�C��(XML)��DOM�c���[����C���X�^���X���\�z���܂��B <br>
-     * WSDD���� <code>&lt;service&gt;</code> �v�f�� <code>provider</code>
-     * �����Ŏw�肳�ꂽ�v���o�C�_��Ή�����S2Axis�̃v���o�C�_�ɕύX���܂��B
+     * コンポーネント定義とWSDDファイル(XML)のDOMツリーからインスタンスを構築します。 <br>
+     * WSDD中の <code>&lt;service&gt;</code> 要素の <code>provider</code>
+     * 属性で指定されたプロバイダを対応するS2Axisのプロバイダに変更します。
      * 
      * @param componentDef
-     *            �R���|�[�l���g��`
+     *            コンポーネント定義
      * @param serviceElement
-     *            WSDD�t�@�C��(XML)��DOM�c���[
+     *            WSDDファイル(XML)のDOMツリー
      * @throws WSDDException
-     *             �C���X�^���X�̍\�z�Ɏ��s�����ꍇ�ɃX���[����܂��B
+     *             インスタンスの構築に失敗した場合にスローされます。
      */
     public WSDDS2Service(final ComponentDef componentDef, final Element serviceElement)
             throws WSDDException {
@@ -149,19 +149,19 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * �R���|�[�l���g��`��Ԃ��܂��B
+     * コンポーネント定義を返します。
      * 
-     * @return �R���|�[�l���g��`
+     * @return コンポーネント定義
      */
     public ComponentDef getComponentDef() {
         return componentDef;
     }
 
     /**
-     * �T�[�r�X����Ԃ��܂��B <br>
-     * �T�[�r�X���́A�R���|�[�l���g��`�ɖ��O��Ԃ��w�肳��Ă����"���O���/�R���|�[�l���g��"�A�����łȂ����"�R���|�[�l���g��"�ɂȂ�܂��B
+     * サービス名を返します。 <br>
+     * サービス名は、コンポーネント定義に名前空間が指定されていれば"名前空間/コンポーネント名"、そうでなければ"コンポーネント名"になります。
      * 
-     * @return �T�[�r�X��
+     * @return サービス名
      */
     protected String getName() {
         final String namespace = componentDef.getContainer().getNamespace();
@@ -173,18 +173,18 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * �T�[�r�X�̌^��Ԃ��܂��B <br>
-     * �T�[�r�X�̌^�́A�T�[�r�X��`�Ɍ^���w�肳��Ă���΂��̌^�A�����łȂ���΃R���|�[�l���g�̌^�ɂȂ�܂��B
+     * サービスの型を返します。 <br>
+     * サービスの型は、サービス定義に型が指定されていればその型、そうでなければコンポーネントの型になります。
      * <p>
-     * �R���|�[�l���g�^��(�C���^�t�F�[�X�ł͂Ȃ�)�����N���X�̏ꍇ�ŁA���\�b�h���`���ꂽ�C���^�t�F�[�X��
-     * ������������Ă���ꍇ�ɂ́A���̃C���^�t�F�[�X���T�[�r�X�̌^�Ƃ��܂��B <br>
-     * ���\�b�h����`���ꂽ�C���^�t�F�[�X�𕡐��������Ă���ꍇ�ł��A�T�[�r�X��`��
-     * ���J���郁�\�b�h���w�肳��Ă��Ȃ��ꍇ�ɂ́A�C���^�t�F�[�X�ɒ�`���ꂽ���\�b�h�̖��O���T�[�r�X��`�̌��J���郁�\�b�h�ɐݒ肵�܂��B
+     * コンポーネント型が(インタフェースではなく)実装クラスの場合で、メソッドを定義されたインタフェースを
+     * 一つだけ実装している場合には、そのインタフェースをサービスの型とします。 <br>
+     * メソッドが定義されたインタフェースを複数実装している場合でかつ、サービス定義に
+     * 公開するメソッドが指定されていない場合には、インタフェースに定義されたメソッドの名前をサービス定義の公開するメソッドに設定します。
      * </p>
      * 
      * @param serviceDef
-     *            �T�[�r�X��`
-     * @return �T�[�r�X�̌^
+     *            サービス定義
+     * @return サービスの型
      */
     protected Class getServiceClass(final ServiceDef serviceDef) {
         Class serviceType = null;
@@ -228,13 +228,13 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * Axis�̃v���o�C�_���ɑΉ�����S2Axis�p�̃v���o�C�_����Ԃ��܂��B
+     * Axisのプロバイダ名に対応するS2Axis用のプロバイダ名を返します。
      * 
      * @param provider
-     *            Axis�W���̃v���o�C�_��
-     * @return S2Axis�p�̃v���o�C�_��
+     *            Axis標準のプロバイダ名
+     * @return S2Axis用のプロバイダ名
      * @throws WSDDException
-     *             Axis�̃v���o�C�_���Ή�����S2Axis�̃v���o�C�_���Ȃ��ꍇ�ɃX���[����܂�
+     *             Axisのプロバイダ名対応するS2Axisのプロバイダがない場合にスローされます
      */
     protected String getS2Provider(final String provider) throws WSDDException {
         final String s2Provider = (String) providerMapping.get(provider);
@@ -245,11 +245,11 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * WSDD�^�C�v�}�b�s���O���쐬���ĕԂ��܂��B
+     * WSDDタイプマッピングを作成して返します。
      * 
      * @param typeMappingDef
-     *            �^�C�v�}�b�s���O��`
-     * @return WSDD�^�C�v�}�b�s���O
+     *            タイプマッピング定義
+     * @return WSDDタイプマッピング
      */
     protected WSDDTypeMapping createWSDDTypeMapping(final TypeMappingDef typeMappingDef) {
         final WSDDTypeMapping wsddTypeMapping = new WSDDTypeMapping();
@@ -269,17 +269,17 @@ public class WSDDS2Service extends WSDDService {
     }
 
     /**
-     * XML�^��QName���쐬���ĕԂ��܂��B
+     * XML型のQNameを作成して返します。
      * 
      * @param type
-     *            Java�^
+     *            Java型
      * @param namespaceURI
-     *            XML�^�̖��O���URI�B�ȗ������Java�^�̃p�b�P�[�W�����瓱�o����܂�
+     *            XML型の名前空間URI。省略するとJava型のパッケージ名から導出されます
      * @param localPart
-     *            XML�^�̃��[�J�����B�ȗ������Java�^�̃N���X�����g���܂�
+     *            XML型のローカル名。省略するとJava型のクラス名が使われます
      * @param namespacePrefix
-     *            XML�^�̖��O��Ԑړ����B�ȗ�����ƃf�t�H���g���O��ԂɂȂ�܂�
-     * @return XML�^��QName
+     *            XML型の名前空間接頭辞。省略するとデフォルト名前空間になります
+     * @return XML型のQName
      */
     protected QName createQNameOfType(final Class type, String namespaceURI, String localPart,
             final String namespacePrefix) {

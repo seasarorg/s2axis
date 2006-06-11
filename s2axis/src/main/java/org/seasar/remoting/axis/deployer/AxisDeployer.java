@@ -40,7 +40,7 @@ import org.seasar.remoting.axis.S2AxisConstants;
 import org.seasar.remoting.common.deployer.Deployer;
 
 /**
- * diconƒtƒ@ƒCƒ‹’†‚É‹Lq‚³‚ê‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+ * diconãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã«è¨˜è¿°ã•ã‚ŒãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
  * 
  * @author koichik
  */
@@ -48,10 +48,10 @@ public class AxisDeployer implements Deployer {
 
     // class fields
     /**
-     * <code>&lt;meta&gt;</code> —v‘f‚Ì <code>name</code>
-     * ‘®«‚Éw’è‚³‚ê‚é–¼‘O‚ğæ“¾‚·‚é‚½‚ß‚Ì³‹K•\Œ»‚Å‚·B <br>
-     * S2Axis-V1.0.0-RC2ˆÈ~‚ÍÚ“ª« <code>axis-</code> ‚ÌŒã‚Éƒ[ƒJƒ‹–¼‚ª‘±‚«‚Ü‚·B <br>
-     * S2Axis-V1.0.0-RC1ˆÈ‘O‚Æ‚ÌŒİŠ·«‚Ì‚½‚ßAÚ“ª« <code>s2-axis:</code> ‚àg‚¦‚é‚æ‚¤‚É‚µ‚Ä‚¢‚Ü‚·B
+     * <code>&lt;meta&gt;</code> è¦ç´ ã® <code>name</code>
+     * å±æ€§ã«æŒ‡å®šã•ã‚Œã‚‹åå‰ã‚’å–å¾—ã™ã‚‹ãŸã‚ã®æ­£è¦è¡¨ç¾ã§ã™ã€‚ <br>
+     * S2Axis-V1.0.0-RC2ä»¥é™ã¯æ¥é ­è¾ <code>axis-</code> ã®å¾Œã«ãƒ­ãƒ¼ã‚«ãƒ«åãŒç¶šãã¾ã™ã€‚ <br>
+     * S2Axis-V1.0.0-RC1ä»¥å‰ã¨ã®äº’æ›æ€§ã®ãŸã‚ã€æ¥é ­è¾ <code>s2-axis:</code> ã‚‚ä½¿ãˆã‚‹ã‚ˆã†ã«ã—ã¦ã„ã¾ã™ã€‚
      */
     protected static final Pattern META_NAME_PATTERN = Pattern.compile("(?:s2-axis:|axis-)(.+)");
 
@@ -69,27 +69,27 @@ public class AxisDeployer implements Deployer {
     };
 
     /**
-     * S2ƒRƒ“ƒeƒi‚ğİ’è‚µ‚Ü‚·B
+     * S2ã‚³ãƒ³ãƒ†ãƒŠã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param container
-     *            S2ƒRƒ“ƒeƒi
+     *            S2ã‚³ãƒ³ãƒ†ãƒŠ
      */
     public void setContainer(final S2Container container) {
         this.container = container.getRoot();
     }
 
     /**
-     * ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚ğİ’è‚µ‚Ü‚·B
+     * ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param servletContext
-     *            ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg
+     *            ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
      */
     public void setServletContext(final ServletContext servletContext) {
         this.servletContext = servletContext;
     }
 
     /**
-     * ƒRƒ“ƒeƒi‚É“o˜^‚³‚ê‚Ä‚¢‚éƒT[ƒrƒX‚âƒnƒ“ƒhƒ‰‚ğƒfƒvƒƒC‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒŠã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‚µãƒ¼ãƒ“ã‚¹ã‚„ãƒãƒ³ãƒ‰ãƒ©ã‚’ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      */
     public void deploy() {
         ((Set) context.get()).clear();
@@ -103,16 +103,16 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * ƒRƒ“ƒeƒi‚ÌŠK‘w‚ğ‚½‚Ç‚Á‚Ä‘S‚Ä‚ÌƒRƒ“ƒeƒi‚ÆƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`‚ğ‘–¸‚µ‚Ü‚·B <br>
-     * ‘–¸‚·‚é‡˜‚ÍŸ‚Ì’Ê‚è‚Å‚·B
+     * ã‚³ãƒ³ãƒ†ãƒŠã®éšå±¤ã‚’ãŸã©ã£ã¦å…¨ã¦ã®ã‚³ãƒ³ãƒ†ãƒŠã¨ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©ã‚’èµ°æŸ»ã—ã¾ã™ã€‚ <br>
+     * èµ°æŸ»ã™ã‚‹é †åºã¯æ¬¡ã®é€šã‚Šã§ã™ã€‚
      * <ol>
-     * <li>q‚ÌƒRƒ“ƒeƒi‚ğÄ‹N“I‚É</li>
-     * <li>ƒRƒ“ƒeƒi©g(&lt;components&gt;’¼‰º‚Ì&lt;meta&gt;—v‘f)</li>
-     * <li>ƒRƒ“ƒ|[ƒlƒ“ƒg(&lt;component&gt;‚Ì‰º‚Ì&lt;meta&gt;—v‘f)</li>
+     * <li>å­ã®ã‚³ãƒ³ãƒ†ãƒŠã‚’å†èµ·çš„ã«</li>
+     * <li>ã‚³ãƒ³ãƒ†ãƒŠè‡ªèº«(&lt;components&gt;ç›´ä¸‹ã®&lt;meta&gt;è¦ç´ )</li>
+     * <li>ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ(&lt;component&gt;ã®ä¸‹ã®&lt;meta&gt;è¦ç´ )</li>
      * </ol>
      * 
      * @param container
-     *            ‹N“_‚Æ‚È‚éƒRƒ“ƒeƒi
+     *            èµ·ç‚¹ã¨ãªã‚‹ã‚³ãƒ³ãƒ†ãƒŠ
      */
     protected void forEach(final S2Container container) {
         Set set = (Set) context.get();
@@ -135,11 +135,11 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * S2ƒRƒ“ƒeƒi‚ÉS2Axis‚Ìƒƒ^ƒf[ƒ^ <code>&lt;meta name="axis-deploy"&gt;</code>
-     * ‚ªw’è‚³‚ê‚Ä‚¢‚ê‚ÎA‚»‚ÌWSDD‚ğAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+     * S2ã‚³ãƒ³ãƒ†ãƒŠã«S2Axisã®ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ <code>&lt;meta name="axis-deploy"&gt;</code>
+     * ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚Œã°ã€ãã®WSDDã‚’Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      * 
      * @param container
-     *            S2ƒRƒ“ƒeƒi
+     *            S2ã‚³ãƒ³ãƒ†ãƒŠ
      */
     protected void process(final S2Container container) {
         final MetaDef[] metaDefs = getMetaDefs(container, S2AxisConstants.META_DEPLOY);
@@ -149,12 +149,12 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`‚ÉS2Axis‚Ìƒƒ^ƒf[ƒ^ <code>&lt;meta name="axis-service"&gt;</code>
-     * ‚Ü‚½‚Í <code>&lt;meta name="axis-handler"&gt;</code>
-     * ‚ªw’è‚³‚ê‚Ä‚¢‚ê‚ÎA‚»‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg‚ğƒT[ƒrƒX‚Ü‚½‚Íƒnƒ“ƒhƒ‰‚Æ‚µ‚ÄAxis‚ÉƒfƒvƒƒC‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©ã«S2Axisã®ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ <code>&lt;meta name="axis-service"&gt;</code>
+     * ã¾ãŸã¯ <code>&lt;meta name="axis-handler"&gt;</code>
+     * ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚Œã°ã€ãã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ã‚µãƒ¼ãƒ“ã‚¹ã¾ãŸã¯ãƒãƒ³ãƒ‰ãƒ©ã¨ã—ã¦Axisã«ãƒ‡ãƒ—ãƒ­ã‚¤ã—ã¾ã™ã€‚
      * 
      * @param componentDef
-     *            ƒRƒ“ƒ|[ƒlƒ“ƒg’è‹`
+     *            ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå®šç¾©
      */
     protected void process(final ComponentDef componentDef) {
         final MetaDef serviceMetaDef = getMetaDef(componentDef, S2AxisConstants.META_SERVICE);
@@ -169,51 +169,51 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * WSDDƒfƒvƒƒCƒƒ“ƒg‚ğ•Ô‚µ‚Ü‚·B
+     * WSDDãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¡ãƒ³ãƒˆã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param container
-     *            ƒRƒ“ƒeƒi
-     * @return WSDDƒfƒvƒƒCƒƒ“ƒg
+     *            ã‚³ãƒ³ãƒ†ãƒŠ
+     * @return WSDDãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¡ãƒ³ãƒˆ
      */
     protected WSDDDeployment getDeployment(final S2Container container) {
         return ((WSDDEngineConfiguration) getEngine(container).getConfig()).getDeployment();
     }
 
     /**
-     * AxisƒGƒ“ƒWƒ“‚ğ•Ô‚µ‚Ü‚·B <br>
-     * AxisƒGƒ“ƒWƒ“‚ÍAƒRƒ“ƒeƒi‚É–¼‘O <code>axis-engine</code> ‚ğ‚Â
-     * <code>&lt;meta&gt;</code> —v‘f‚ªw’è‚³‚ê‚Ä‚¢‚ê‚ÎA‚»‚Ì“à—e•¶š—ñ‚©‚çŸ‚Ì‚æ‚¤‚ÉŒˆ’è‚³‚ê‚Ü‚·B
+     * Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’è¿”ã—ã¾ã™ã€‚ <br>
+     * Axisã‚¨ãƒ³ã‚¸ãƒ³ã¯ã€ã‚³ãƒ³ãƒ†ãƒŠã«åå‰ <code>axis-engine</code> ã‚’æŒã¤
+     * <code>&lt;meta&gt;</code> è¦ç´ ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚Œã°ã€ãã®å†…å®¹æ–‡å­—åˆ—ã‹ã‚‰æ¬¡ã®ã‚ˆã†ã«æ±ºå®šã•ã‚Œã¾ã™ã€‚
      * <dl>
-     * <dt>–¢’è‹`‚Ìê‡</dt>
-     * <dd><code>"default"</code> ‚ªw’è‚³‚ê‚½‚à‚Ì‚Æ‚µ‚ÄAxisƒGƒ“ƒWƒ“‚ğŒˆ’è‚µ‚Ü‚·B</dd>
+     * <dt>æœªå®šç¾©ã®å ´åˆ</dt>
+     * <dd><code>"default"</code> ãŒæŒ‡å®šã•ã‚ŒãŸã‚‚ã®ã¨ã—ã¦Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’æ±ºå®šã—ã¾ã™ã€‚</dd>
      * <dt><code>"default"</code></dt>
-     * <dd>ƒRƒ“ƒeƒi‚ÉƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚ªİ’è‚³‚ê‚Ä‚¢‚ê‚Î <code>"default-server"</code> A‚»‚¤‚Å‚È‚¯‚ê‚Î
-     * <code>"default-client"</code> ‚ªw’è‚³‚ê‚½‚à‚Ì‚Æ‚µ‚ÄAxisƒGƒ“ƒWƒ“‚ğŒˆ’è‚µ‚Ü‚·B</dd>
+     * <dd>ã‚³ãƒ³ãƒ†ãƒŠã«ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ã‚Œã° <code>"default-server"</code> ã€ãã†ã§ãªã‘ã‚Œã°
+     * <code>"default-client"</code> ãŒæŒ‡å®šã•ã‚ŒãŸã‚‚ã®ã¨ã—ã¦Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’æ±ºå®šã—ã¾ã™ã€‚</dd>
      * <dt><code>"default-client"</code></dt>
-     * <dd>ƒRƒ“ƒeƒi‚©‚ç <code>javax.xml.rpc.Service</code>
-     * ‚ğÀ‘•‚µ‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾‚µA‚»‚ÌƒGƒ“ƒWƒ“‚ğg—p‚µ‚Ü‚·B</dd>
+     * <dd>ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰ <code>javax.xml.rpc.Service</code>
+     * ã‚’å®Ÿè£…ã—ãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—ã—ã€ãã®ã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚</dd>
      * <dt><code>"default-server"</code></dt>
-     * <dd>ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚Éİ’è‚³‚ê‚Ä‚¢‚éAxisƒGƒ“ƒWƒ“‚ğg—p‚µ‚Ü‚·B <br>
-     * Å‰‚É {@link S2AxisConstants#AXIS_SERVLET}‚Æ
-     * {@link S2AxisConstants#ATTR_AXIS_ENGINE}‚ğ˜AŒ‹‚µ‚½•¶š—ñ‚ğƒL[‚Æ‚µ‚Ä
-     * ƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚©‚çAxisƒGƒ“ƒWƒ“‚ğæ“¾‚µ‚Ü‚·B <br>
-     * Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Í{S2AxisConstants#ATTR_AXIS_ENGINE}‚ğ
-     * ƒL[‚Æ‚µ‚ÄƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚©‚çæ“¾‚µ‚½AxisƒGƒ“ƒWƒ“‚ğæ“¾‚µ‚Ü‚·B <br>
+     * <dd>ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã«è¨­å®šã•ã‚Œã¦ã„ã‚‹Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚ <br>
+     * æœ€åˆã« {@link S2AxisConstants#AXIS_SERVLET}ã¨
+     * {@link S2AxisConstants#ATTR_AXIS_ENGINE}ã‚’é€£çµã—ãŸæ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã¨ã—ã¦
+     * ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’å–å¾—ã—ã¾ã™ã€‚ <br>
+     * è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯{S2AxisConstants#ATTR_AXIS_ENGINE}ã‚’
+     * ã‚­ãƒ¼ã¨ã—ã¦ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰å–å¾—ã—ãŸAxisã‚¨ãƒ³ã‚¸ãƒ³ã‚’å–å¾—ã—ã¾ã™ã€‚ <br>
      * </dd>
-     * <dt><code>"servlet:"</code> ‚Ån‚Ü‚é•¶š—ñ</dt>
-     * <dd><code>"servlet:"</code> ‚ÌŒã‚ë‚Ì•¶š—ñ‚ğƒL[‚Æ‚µ‚ÄƒT[ƒuƒŒƒbƒgƒRƒ“ƒeƒLƒXƒg‚©‚ç
-     * æ“¾‚µ‚½AxisƒGƒ“ƒWƒ“‚ğg—p‚µ‚Ü‚·B
+     * <dt><code>"servlet:"</code> ã§å§‹ã¾ã‚‹æ–‡å­—åˆ—</dt>
+     * <dd><code>"servlet:"</code> ã®å¾Œã‚ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã¨ã—ã¦ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰
+     * å–å¾—ã—ãŸAxisã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚
      * <dd>
-     * <dt><code>"s2:"</code> ‚Ån‚Ü‚é•¶š—ñ</dt>
-     * <dd><code>"s2:"</code> ‚ÌŒã‚ë‚Ì•¶š—ñ‚ğƒL[‚Æ‚µ‚ÄS2ƒRƒ“ƒeƒi‚©‚ç
-     * æ“¾‚µ‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğAxisƒGƒ“ƒWƒ“‚ğg—p‚µ‚Ü‚·B</dd>
-     * <dt>‚»‚Ì‘¼</dt>
-     * <dd>ƒL[‚Æ‚µ‚ÄS2ƒRƒ“ƒeƒi‚©‚çæ“¾‚µ‚½ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğAxisƒGƒ“ƒWƒ“‚Æ‚µ‚Äg—p‚µ‚Ü‚·B</dd>
+     * <dt><code>"s2:"</code> ã§å§‹ã¾ã‚‹æ–‡å­—åˆ—</dt>
+     * <dd><code>"s2:"</code> ã®å¾Œã‚ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã¨ã—ã¦S2ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰
+     * å–å¾—ã—ãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’Axisã‚¨ãƒ³ã‚¸ãƒ³ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚</dd>
+     * <dt>ãã®ä»–</dt>
+     * <dd>ã‚­ãƒ¼ã¨ã—ã¦S2ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰å–å¾—ã—ãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’Axisã‚¨ãƒ³ã‚¸ãƒ³ã¨ã—ã¦ä½¿ç”¨ã—ã¾ã™ã€‚</dd>
      * </dl>
      * 
      * @param container
-     *            ƒRƒ“ƒeƒi
-     * @return AxisƒGƒ“ƒWƒ“
+     *            ã‚³ãƒ³ãƒ†ãƒŠ
+     * @return Axisã‚¨ãƒ³ã‚¸ãƒ³
      */
     protected AxisEngine getEngine(final S2Container container) {
         String engineName = S2AxisConstants.ENGINE_DEFAULT;
@@ -266,17 +266,17 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * <code>S2Container</code> ‚Ü‚½‚Í <code>ComponentDef</code> ‚ª–¼‘O
-     * <code>"axis-<var>localName</var></code> ‚Ì <code>&lt;meta&gt;</code>
-     * —v‘f‚ğ‚Á‚Ä‚¢‚ê‚ÎA‚»‚Ì <code>MetaDef</code> ‚ğ•Ô‚µ‚Ü‚·B <br>
-     * <code>S2Container</code> ‚Ü‚½‚Í <code>ComponentDef</code> ‚ÉŠY“–‚·‚é
-     * ƒƒ^ƒf[ƒ^‚ª•¡”’è‹`‚³‚ê‚Ä‚¢‚éê‡‚ÍÅ‰‚ÉŒ©‚Â‚©‚Á‚½ƒƒ^ƒf[ƒ^‚ğ•Ô‚µ‚Ü‚·B
+     * <code>S2Container</code> ã¾ãŸã¯ <code>ComponentDef</code> ãŒåå‰
+     * <code>"axis-<var>localName</var></code> ã® <code>&lt;meta&gt;</code>
+     * è¦ç´ ã‚’æŒã£ã¦ã„ã‚Œã°ã€ãã® <code>MetaDef</code> ã‚’è¿”ã—ã¾ã™ã€‚ <br>
+     * <code>S2Container</code> ã¾ãŸã¯ <code>ComponentDef</code> ã«è©²å½“ã™ã‚‹
+     * ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ãŒè¤‡æ•°å®šç¾©ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯æœ€åˆã«è¦‹ã¤ã‹ã£ãŸãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param metaDefSupport
-     *            <code>S2Container</code> ‚Ü‚½‚Í <code>ComponentDef</code>
+     *            <code>S2Container</code> ã¾ãŸã¯ <code>ComponentDef</code>
      * @param localName
-     *            Ú“ª« <code>axis-</code> ‚É‘±‚­ƒƒ^ƒf[ƒ^‚Ì–¼‘O
-     * @return w’è‚³‚ê‚½–¼‘O‚ğ‚Â <code>MetaDef</code> B‘¶İ‚µ‚È‚¢ê‡‚Í <code>null</code>
+     *            æ¥é ­è¾ <code>axis-</code> ã«ç¶šããƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã®åå‰
+     * @return æŒ‡å®šã•ã‚ŒãŸåå‰ã‚’æŒã¤ <code>MetaDef</code> ã€‚å­˜åœ¨ã—ãªã„å ´åˆã¯ <code>null</code>
      */
     protected MetaDef getMetaDef(final MetaDefAware metaDefSupport, final String localName) {
         for (int i = 0; i < metaDefSupport.getMetaDefSize(); ++i) {
@@ -289,15 +289,15 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * <code>S2Container</code> ‚Ü‚½‚Í <code>ComponentDef</code> ‚ª–¼‘O
-     * <code>"axis-<var>localName</var></code> ‚Ì <code>&lt;meta&gt;</code>
-     * —v‘f‚ğ‚Á‚Ä‚¢‚ê‚ÎA‚»‚Ì <code>MetaDef</code> ‚ğ‘S‚Ä•Ô‚µ‚Ü‚·B <br>
+     * <code>S2Container</code> ã¾ãŸã¯ <code>ComponentDef</code> ãŒåå‰
+     * <code>"axis-<var>localName</var></code> ã® <code>&lt;meta&gt;</code>
+     * è¦ç´ ã‚’æŒã£ã¦ã„ã‚Œã°ã€ãã® <code>MetaDef</code> ã‚’å…¨ã¦è¿”ã—ã¾ã™ã€‚ <br>
      * 
      * @param metaDefSupport
-     *            <code>S2Container</code> ‚Ü‚½‚Í <code>ComponentDef</code>
+     *            <code>S2Container</code> ã¾ãŸã¯ <code>ComponentDef</code>
      * @param localName
-     *            Ú“ª« <code>axis-</code> ‚É‘±‚­ƒƒ^ƒf[ƒ^‚Ì–¼‘O
-     * @return w’è‚³‚ê‚½–¼‘O‚ğ‚Â <code>MetaDef</code> ‚Ì”z—ñ
+     *            æ¥é ­è¾ <code>axis-</code> ã«ç¶šããƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã®åå‰
+     * @return æŒ‡å®šã•ã‚ŒãŸåå‰ã‚’æŒã¤ <code>MetaDef</code> ã®é…åˆ—
      */
     protected MetaDef[] getMetaDefs(final MetaDefAware metaDefSupport, final String localName) {
         final List result = new ArrayList();
@@ -311,11 +311,11 @@ public class AxisDeployer implements Deployer {
     }
 
     /**
-     * ƒƒ^ƒf[ƒ^‚Ì–¼‘O‚ªS2Axis‚Åg—p‚·‚éÚ“ª«‚Ån‚Ü‚Á‚Ä‚¢‚ê‚ÎAÚ“ª«‚ÌŒã‚ë‚Ìƒ[ƒJƒ‹–¼‚ğ•Ô‚µ‚Ü‚·B
+     * ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã®åå‰ãŒS2Axisã§ä½¿ç”¨ã™ã‚‹æ¥é ­è¾ã§å§‹ã¾ã£ã¦ã„ã‚Œã°ã€æ¥é ­è¾ã®å¾Œã‚ã®ãƒ­ãƒ¼ã‚«ãƒ«åã‚’è¿”ã—ã¾ã™ã€‚
      * 
      * @param metaDef
-     *            ƒƒ^ƒf[ƒ^’è‹`
-     * @return ƒ[ƒJƒ‹–¼
+     *            ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿å®šç¾©
+     * @return ãƒ­ãƒ¼ã‚«ãƒ«å
      */
     protected String getLocalName(final MetaDef metaDef) {
         final Matcher matcher = META_NAME_PATTERN.matcher(metaDef.getName());
