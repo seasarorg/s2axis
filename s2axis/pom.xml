@@ -8,7 +8,7 @@
   <artifactId>s2axis</artifactId>
   <packaging>jar</packaging>
   <name>S2Axis Project</name>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <description></description>
   <url>http://s2axis.seasar.org/</url>
   <inceptionYear>2005</inceptionYear>

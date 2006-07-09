@@ -39,6 +39,9 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
     // instance fields
     protected Service service;
 
+    /** タイムアウト値 */
+    private int timeout = 0;
+
     /**
      * Axisサービスを設定します。
      * 
@@ -71,6 +74,16 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
         final Call call = service.createCall();
         call.setTargetEndpointAddress(targetURL.toString());
         call.setOperationName(new QName(S2AxisConstants.OPERATION_NAMESPACE_URI, method.getName()));
+
+        if (this.timeout > 0 && call instanceof org.apache.axis.client.Call) {
+            org.apache.axis.client.Call axisCall = (org.apache.axis.client.Call) call;
+            axisCall.setTimeout(new Integer(timeout));
+        }
+
         return call.invoke(args);
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
     }
 }
