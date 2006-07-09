@@ -1,5 +1,5 @@
 <project name="S2AxisExamples" default="dist" basedir=".">
-	<property name="ver" value="1.0.1"/>
+	<property name="ver" value="1.0.2"/>
 
 	<path id="axis.classpath">
 		<pathelement location="build/classes" />
