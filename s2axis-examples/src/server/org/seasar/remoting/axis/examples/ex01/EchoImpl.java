@@ -15,11 +15,17 @@
  */
 package org.seasar.remoting.axis.examples.ex01;
 
+import java.util.Map;
+
 /**
  * @author koichik
  */
 public class EchoImpl implements Echo {
     public String echo(String message) {
         return message;
+    }
+
+    public Map echoMap(Map map) {
+        return map;
     }
 }

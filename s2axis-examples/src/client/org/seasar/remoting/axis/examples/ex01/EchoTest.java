@@ -15,6 +15,9 @@
  */
 package org.seasar.remoting.axis.examples.ex01;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.seasar.extension.unit.S2TestCase;
 
 /**
@@ -29,8 +32,22 @@ public class EchoTest extends S2TestCase {
         include("EchoTest.dicon");
     }
 
-    public void test() {
+    public void testEcho() {
         Echo echo = (Echo) getComponent(Echo.class);
         assertEquals("Hello", echo.echo("Hello"));
+    }
+
+    public void testEchoMap() {
+        Echo echo = (Echo) getComponent(Echo.class);
+        Map request = new HashMap();
+        request.put("aaa", "AAA");
+        request.put("bbb", "BBB");
+
+        Map result = echo.echoMap(request);
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals("AAA", result.get("aaa"));
+        assertEquals("BBB", result.get("bbb"));
     }
 }
