@@ -15,9 +15,14 @@
  */
 package org.seasar.remoting.axis;
 
+import javax.xml.namespace.QName;
+
 import org.apache.axis.Constants;
 import org.apache.axis.encoding.ser.BeanDeserializerFactory;
 import org.apache.axis.encoding.ser.BeanSerializerFactory;
+import org.apache.axis.wsdl.fromJava.Namespaces;
+import org.apache.axis.wsdl.fromJava.Types;
+import org.seasar.framework.util.StringUtil;
 
 /**
  * diconファイル中でタイプマッピング情報を設定するために使われます。
@@ -168,4 +173,22 @@ public class TypeMappingDef {
     public void setEncodingStyle(final String encodingStyle) {
         this.encodingStyle = encodingStyle;
     }
+
+    /**
+     * XML型のQNameを作成して返します。
+     * 
+     * @return XML型のQName
+     */
+    public QName getQName() {
+        if (StringUtil.isEmpty(namespaceURI)) {
+            namespaceURI = Namespaces.makeNamespace(type.getName());
+        }
+
+        if (StringUtil.isEmpty(localPart)) {
+            localPart = Types.getLocalNameFromFullName(type.getName());
+        }
+
+        return new QName(namespaceURI, localPart, namespacePrefix);
+    }
+
 }

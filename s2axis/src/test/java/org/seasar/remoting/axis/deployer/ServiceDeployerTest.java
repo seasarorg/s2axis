@@ -17,6 +17,7 @@ package org.seasar.remoting.axis.deployer;
 
 import javax.xml.namespace.QName;
 
+import org.apache.axis.client.Service;
 import org.apache.axis.providers.java.JavaProvider;
 import org.seasar.extension.unit.S2TestCase;
 import org.seasar.framework.container.ComponentDef;
@@ -37,9 +38,14 @@ public class ServiceDeployerTest extends S2TestCase {
         super(name);
     }
 
-    public void testCreateWSDDS2Service() {
+    public void setUpCreateWSDDS2Service() {
         include("ServiceDeployerTest.createWSDDS2Service.dicon");
+        register(new Service());
+    }
+
+    public void testCreateWSDDS2Service() {
         AxisDeployer deployer = new AxisDeployer();
+        deployer.container = getContainer();
         ServiceDeployer serviceDeployer = (ServiceDeployer) deployer.serviceDeployer;
 
         ComponentDef def1 = getComponentDef("null");

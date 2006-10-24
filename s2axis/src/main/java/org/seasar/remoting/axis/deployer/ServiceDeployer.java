@@ -18,6 +18,7 @@ package org.seasar.remoting.axis.deployer;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axis.deployment.wsdd.WSDDConstants;
 import org.apache.axis.deployment.wsdd.WSDDException;
@@ -88,12 +89,13 @@ public class ServiceDeployer implements ItemDeployer {
     protected WSDDS2Service createWSDDS2Service(final ComponentDef componentDef,
             final MetaDef metaDef) {
         try {
+            final Map options = deployer.getEngine().getOptions();
             final Object metadata = metaDef.getValue();
             if (metadata == null) {
-                return new WSDDS2Service(componentDef);
+                return new WSDDS2Service(componentDef, options);
             }
             else if (metadata instanceof ServiceDef) {
-                return new WSDDS2Service(componentDef, (ServiceDef) metadata);
+                return new WSDDS2Service(componentDef, (ServiceDef) metadata, options);
             }
             else if (metadata instanceof String) {
                 return new WSDDS2Service(componentDef, getServiceElement((String) metadata));

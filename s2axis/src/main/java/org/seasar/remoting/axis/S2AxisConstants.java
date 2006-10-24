@@ -95,4 +95,10 @@ public interface S2AxisConstants {
      * サーブレットコンテキストからAxisエンジンを取得するためのキーです。
      */
     String ATTR_AXIS_ENGINE = "AxisEngine";
+
+    /**
+     * Axisのグローバルプロパティからタイプマッピングバージョンを取得するためのキーです。
+     */
+    String TYPE_MAPPING_VERSION = "typeMappingVersion";
+
 }

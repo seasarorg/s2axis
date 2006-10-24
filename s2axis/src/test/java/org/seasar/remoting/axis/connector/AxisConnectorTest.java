@@ -16,15 +16,22 @@
 package org.seasar.remoting.axis.connector;
 
 import java.lang.reflect.Field;
+import java.util.Map;
 
+import javax.xml.rpc.encoding.DeserializerFactory;
+import javax.xml.rpc.encoding.SerializerFactory;
 import javax.xml.rpc.encoding.TypeMapping;
 
 import junit.framework.TestCase;
 
 import org.apache.axis.client.Service;
 import org.apache.axis.constants.Use;
+import org.apache.axis.encoding.AutoRegisterableTypeMappingDelegate;
 import org.apache.axis.encoding.TypeMappingDelegate;
 import org.apache.axis.encoding.TypeMappingImpl;
+import org.apache.axis.encoding.ser.MapDeserializerFactory;
+import org.apache.axis.encoding.ser.MapSerializerFactory;
+import org.seasar.remoting.axis.TypeMappingDef;
 
 /**
  * @author koichik
@@ -44,18 +51,42 @@ public class AxisConnectorTest extends TestCase {
         AxisConnector connector = new AxisConnector();
         connector.setService(service);
 
-        TypeMapping delegate = service.getTypeMappingRegistry().getTypeMapping(
-                Use.DEFAULT.getEncoding());
-        assertTrue("1", delegate instanceof TypeMappingDelegate);
+        TypeMappingDelegate delegate = (TypeMappingDelegate) connector.tmr
+                .getTypeMapping(Use.DEFAULT.getEncoding());
+        assertTrue(delegate instanceof AutoRegisterableTypeMappingDelegate);
 
         Field f = TypeMappingDelegate.class.getDeclaredField("delegate");
         f.setAccessible(true);
         Object tm = f.get(delegate);
-        assertTrue("2", tm instanceof TypeMappingImpl);
+        assertTrue(tm instanceof TypeMappingImpl);
 
         f = TypeMappingImpl.class.getDeclaredField("doAutoTypes");
         f.setAccessible(true);
         Boolean doAtuoTypes = (Boolean) f.get(tm);
-        assertTrue("3", doAtuoTypes.booleanValue());
+        assertTrue(doAtuoTypes.booleanValue());
+
+        delegate = delegate.getNext();
+    }
+
+    public void testAddTypeMapping() throws Exception {
+        Service service = new Service();
+
+        AxisConnector connector = new AxisConnector();
+        connector.setService(service);
+
+        TypeMappingDef tmd = new TypeMappingDef();
+        tmd.setType(Map.class);
+        tmd.setSerializer(MapSerializerFactory.class);
+        tmd.setDeserializer(MapDeserializerFactory.class);
+
+        connector.addTypeMapping(tmd);
+
+        TypeMapping tm = connector.tmr.getTypeMapping(tmd.getEncodingStyle());
+        SerializerFactory ser = tm.getSerializer(Map.class, tmd.getQName());
+        assertNotNull(ser);
+        assertTrue(ser instanceof MapSerializerFactory);
+        DeserializerFactory deser = tm.getDeserializer(Map.class, tmd.getQName());
+        assertNotNull(deser);
+        assertTrue(deser instanceof MapDeserializerFactory);
     }
 }

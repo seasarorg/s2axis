@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
@@ -59,7 +60,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
 
     public void testNoInterface() throws Exception {
         ComponentDef cd = getComponentDef("no");
-        WSDDS2Service s2Service = new WSDDS2Service(cd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, new HashMap());
 
         assertEquals("1", new QName("no"), s2Service.getQName());
         assertEquals("2", "no", s2Service.getServiceDesc().getName());
@@ -72,7 +73,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
 
     public void testIgnoreInterface() throws Exception {
         ComponentDef cd = getComponentDef("ignore");
-        WSDDS2Service s2Service = new WSDDS2Service(cd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, new HashMap());
 
         assertEquals("1", new QName("ignore"), s2Service.getQName());
         assertEquals("2", "ignore", s2Service.getServiceDesc().getName());
@@ -85,7 +86,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
 
     public void testOneInterface() throws Exception {
         ComponentDef cd = getComponentDef("one");
-        WSDDS2Service s2Service = new WSDDS2Service(cd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, new HashMap());
 
         assertEquals("1", new QName("one"), s2Service.getQName());
         assertEquals("2", "one", s2Service.getServiceDesc().getName());
@@ -98,7 +99,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
 
     public void testTwoInterface() throws Exception {
         ComponentDef cd = getComponentDef("two");
-        WSDDS2Service s2Service = new WSDDS2Service(cd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, new HashMap());
 
         assertEquals("1", new QName("two"), s2Service.getQName());
         assertEquals("2", "two", s2Service.getServiceDesc().getName());
@@ -119,7 +120,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
         ComponentDef cd = getComponentDef("two");
         ServiceDef sd = new ServiceDef();
         sd.setServiceType(Comparable.class);
-        WSDDS2Service s2Service = new WSDDS2Service(cd, sd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, sd, new HashMap());
 
         assertEquals("1", "java.lang.Comparable", s2Service
                 .getParameter(JavaProvider.OPTION_CLASSNAME));
@@ -130,7 +131,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
         ComponentDef cd = getComponentDef("two");
         ServiceDef sd = new ServiceDef();
         sd.setAllowedMethods("run hasMoreElements");
-        WSDDS2Service s2Service = new WSDDS2Service(cd, sd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, sd, new HashMap());
 
         assertEquals("1", "org.seasar.remoting.axis.deployment.WSDDS2ServiceTest$TwoInterface",
                 s2Service.getParameter(JavaProvider.OPTION_CLASSNAME));
@@ -146,7 +147,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
         ComponentDef cd = getComponentDef("no");
         ServiceDef sd = new ServiceDef();
         sd.setProvider("MSG");
-        WSDDS2Service s2Service = new WSDDS2Service(cd, sd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, sd, new HashMap());
 
         assertEquals("1", new QName(WSDDConstants.URI_WSDD_JAVA, "S2MSG"), s2Service
                 .getProviderQName());
@@ -161,7 +162,7 @@ public class WSDDS2ServiceTest extends S2TestCase {
         tmd.setNamespacePrefix("cc");
         ServiceDef sd = new ServiceDef();
         sd.addTypeMapping(tmd);
-        WSDDS2Service s2Service = new WSDDS2Service(cd, sd);
+        WSDDS2Service s2Service = new WSDDS2Service(cd, sd, new HashMap());
 
         Vector typeMappings = s2Service.getTypeMappings();
         assertEquals("1", 1, typeMappings.size());

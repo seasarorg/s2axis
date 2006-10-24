@@ -23,19 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
-import javax.xml.rpc.encoding.TypeMapping;
 
-import org.apache.axis.constants.Use;
 import org.apache.axis.deployment.wsdd.WSDDConstants;
 import org.apache.axis.deployment.wsdd.WSDDException;
 import org.apache.axis.deployment.wsdd.WSDDService;
 import org.apache.axis.deployment.wsdd.WSDDTypeMapping;
 import org.apache.axis.description.JavaServiceDesc;
-import org.apache.axis.encoding.TypeMappingDelegate;
+import org.apache.axis.encoding.AutoRegisterableTypeMappingDelegate;
 import org.apache.axis.encoding.TypeMappingRegistry;
 import org.apache.axis.providers.java.JavaProvider;
-import org.apache.axis.wsdl.fromJava.Namespaces;
-import org.apache.axis.wsdl.fromJava.Types;
 import org.seasar.framework.container.ComponentDef;
 import org.seasar.framework.message.MessageFormatter;
 import org.seasar.framework.util.StringUtil;
@@ -69,11 +65,13 @@ public class WSDDS2Service extends WSDDService {
      * 
      * @param componentDef
      *            コンポーネント定義
+     * @param options
+     *            Axisエンジンに設定されたオプション情報
      * @throws WSDDException
      *             インスタンスの構築に失敗した場合にスローされます。
      */
-    public WSDDS2Service(final ComponentDef componentDef) throws WSDDException {
-        this(componentDef, new ServiceDef());
+    public WSDDS2Service(final ComponentDef componentDef, final Map options) throws WSDDException {
+        this(componentDef, new ServiceDef(), options);
     }
 
     /**
@@ -83,11 +81,13 @@ public class WSDDS2Service extends WSDDService {
      *            コンポーネント定義
      * @param serviceDef
      *            サービス定義
+     * @param options
+     *            Axisエンジンに設定されたオプション情報
      * @throws WSDDException
      *             インスタンスの構築に失敗した場合にスローされます。
      */
-    public WSDDS2Service(final ComponentDef componentDef, final ServiceDef serviceDef)
-            throws WSDDException {
+    public WSDDS2Service(final ComponentDef componentDef, final ServiceDef serviceDef,
+            final Map options) throws WSDDException {
         this.componentDef = componentDef;
 
         final String name = getName();
@@ -105,6 +105,12 @@ public class WSDDS2Service extends WSDDService {
                     new Object[] { name }));
         }
         setParameter(JavaProvider.OPTION_CLASSNAME, serviceType.getName());
+
+        final String typeMappingVersion = (String) options
+                .get(S2AxisConstants.TYPE_MAPPING_VERSION);
+        if (!StringUtil.isEmpty(typeMappingVersion)) {
+            setParameter(S2AxisConstants.TYPE_MAPPING_VERSION, typeMappingVersion);
+        }
 
         setProviderQName(new QName(WSDDConstants.URI_WSDD_JAVA, getS2Provider(serviceDef
                 .getProvider())));
@@ -124,8 +130,10 @@ public class WSDDS2Service extends WSDDService {
         validateDescriptors();
 
         final TypeMappingRegistry tmr = serviceDesc.getTypeMappingRegistry();
-        TypeMapping tm = tmr.getTypeMapping(Use.DEFAULT.getEncoding());
-        ((TypeMappingDelegate) tm).setDoAutoTypes(true);
+        final String[] encodings = tmr.getRegisteredEncodingStyleURIs();
+        for (int i = 0; i < encodings.length; ++i) {
+            tmr.register(encodings[i], new AutoRegisterableTypeMappingDelegate());
+        }
     }
 
     /**
@@ -255,11 +263,8 @@ public class WSDDS2Service extends WSDDService {
         final WSDDTypeMapping wsddTypeMapping = new WSDDTypeMapping();
 
         final Class type = typeMappingDef.getType();
-        wsddTypeMapping.setLanguageSpecificType(typeMappingDef.getType());
-
-        wsddTypeMapping.setQName(createQNameOfType(type, typeMappingDef.getNamespaceURI(),
-                typeMappingDef.getLocalPart(), typeMappingDef.getNamespacePrefix()));
-
+        wsddTypeMapping.setLanguageSpecificType(type);
+        wsddTypeMapping.setQName(typeMappingDef.getQName());
         wsddTypeMapping.setSerializer(typeMappingDef.getSerializer());
         wsddTypeMapping.setDeserializer(typeMappingDef.getDeserializer());
 
@@ -268,29 +273,4 @@ public class WSDDS2Service extends WSDDService {
         return wsddTypeMapping;
     }
 
-    /**
-     * XML型のQNameを作成して返します。
-     * 
-     * @param type
-     *            Java型
-     * @param namespaceURI
-     *            XML型の名前空間URI。省略するとJava型のパッケージ名から導出されます
-     * @param localPart
-     *            XML型のローカル名。省略するとJava型のクラス名が使われます
-     * @param namespacePrefix
-     *            XML型の名前空間接頭辞。省略するとデフォルト名前空間になります
-     * @return XML型のQName
-     */
-    protected QName createQNameOfType(final Class type, String namespaceURI, String localPart,
-            final String namespacePrefix) {
-        if (StringUtil.isEmpty(namespaceURI)) {
-            namespaceURI = Namespaces.makeNamespace(type.getName());
-        }
-
-        if (StringUtil.isEmpty(localPart)) {
-            localPart = Types.getLocalNameFromFullName(type.getName());
-        }
-
-        return new QName(namespaceURI, localPart, namespacePrefix);
-    }
 }

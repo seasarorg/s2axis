@@ -181,6 +181,16 @@ public class AxisDeployer implements Deployer {
 
     /**
      * Axisエンジンを返します。 <br>
+     * デフォルトの S2 コンテナから Axis エンジンを探して返します。
+     * 
+     * @return Axisエンジン
+     */
+    protected AxisEngine getEngine() {
+        return getEngine(container);
+    }
+
+    /**
+     * Axisエンジンを返します。 <br>
      * Axisエンジンは、コンテナに名前 <code>axis-engine</code> を持つ
      * <code>&lt;meta&gt;</code> 要素が指定されていれば、その内容文字列から次のように決定されます。
      * <dl>
@@ -279,6 +289,9 @@ public class AxisDeployer implements Deployer {
      * @return 指定された名前を持つ <code>MetaDef</code> 。存在しない場合は <code>null</code>
      */
     protected MetaDef getMetaDef(final MetaDefAware metaDefSupport, final String localName) {
+        if (metaDefSupport == null) {
+            return null;
+        }
         for (int i = 0; i < metaDefSupport.getMetaDefSize(); ++i) {
             final MetaDef metaDef = metaDefSupport.getMetaDef(i);
             if (localName.equals(getLocalName(metaDef))) {

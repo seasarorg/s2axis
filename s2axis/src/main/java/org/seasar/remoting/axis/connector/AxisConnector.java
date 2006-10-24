@@ -17,16 +17,22 @@ package org.seasar.remoting.axis.connector;
 
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
 import javax.xml.rpc.Call;
 import javax.xml.rpc.Service;
-import javax.xml.rpc.encoding.TypeMapping;
+import javax.xml.rpc.encoding.DeserializerFactory;
+import javax.xml.rpc.encoding.SerializerFactory;
 
-import org.apache.axis.constants.Use;
-import org.apache.axis.encoding.TypeMappingDelegate;
+import org.apache.axis.encoding.AutoRegisterableTypeMappingDelegate;
+import org.apache.axis.encoding.TypeMapping;
 import org.apache.axis.encoding.TypeMappingRegistry;
+import org.apache.axis.encoding.TypeMappingRegistryImpl;
+import org.apache.axis.encoding.ser.BaseDeserializerFactory;
+import org.apache.axis.encoding.ser.BaseSerializerFactory;
 import org.seasar.remoting.axis.S2AxisConstants;
+import org.seasar.remoting.axis.TypeMappingDef;
 import org.seasar.remoting.common.connector.impl.TargetSpecificURLBasedConnector;
 
 /**
@@ -38,6 +44,7 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
 
     // instance fields
     protected Service service;
+    protected TypeMappingRegistry tmr;
 
     /** タイムアウト値 */
     private int timeout = 0;
@@ -50,10 +57,44 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
      */
     public void setService(final Service service) {
         this.service = service;
+        tmr = new TypeMappingRegistryImpl();
 
-        final TypeMappingRegistry tmr = (TypeMappingRegistry) service.getTypeMappingRegistry();
-        TypeMapping tm = tmr.getTypeMapping(Use.DEFAULT.getEncoding());
-        ((TypeMappingDelegate) tm).setDoAutoTypes(true);
+        final Map options = ((org.apache.axis.client.Service) service).getEngine().getOptions();
+        final String typeMappingVersion = (String) options
+                .get(S2AxisConstants.TYPE_MAPPING_VERSION);
+        ((TypeMappingRegistryImpl) tmr).doRegisterFromVersion(typeMappingVersion);
+
+        final String[] encodings = tmr.getRegisteredEncodingStyleURIs();
+        for (int i = 0; i < encodings.length; ++i) {
+            tmr.register(encodings[i], new AutoRegisterableTypeMappingDelegate());
+        }
+    }
+
+    /**
+     * タイムアウト時間をミリ秒単位で設定します。
+     * 
+     * @param timeout
+     *            タイムアウト時間
+     */
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    /**
+     * タイプマッピング定義を追加します。
+     * 
+     * @param typeMappingDef
+     *            タイプマッピング定義
+     */
+    public void addTypeMapping(final TypeMappingDef typeMappingDef) {
+        final TypeMapping tm = (TypeMapping) tmr.getOrMakeTypeMapping(typeMappingDef
+                .getEncodingStyle());
+        final QName qName = typeMappingDef.getQName();
+        final SerializerFactory ser = BaseSerializerFactory.createFactory(typeMappingDef
+                .getSerializer(), typeMappingDef.getType(), qName);
+        final DeserializerFactory deser = BaseDeserializerFactory.createFactory(typeMappingDef
+                .getDeserializer(), typeMappingDef.getType(), qName);
+        tm.register(typeMappingDef.getType(), qName, ser, deser);
     }
 
     /**
@@ -75,15 +116,15 @@ public class AxisConnector extends TargetSpecificURLBasedConnector {
         call.setTargetEndpointAddress(targetURL.toString());
         call.setOperationName(new QName(S2AxisConstants.OPERATION_NAMESPACE_URI, method.getName()));
 
-        if (this.timeout > 0 && call instanceof org.apache.axis.client.Call) {
+        if (call instanceof org.apache.axis.client.Call) {
             org.apache.axis.client.Call axisCall = (org.apache.axis.client.Call) call;
-            axisCall.setTimeout(new Integer(timeout));
+            axisCall.getMessageContext().setTypeMappingRegistry(tmr);
+            if (timeout > 0) {
+                axisCall.setTimeout(new Integer(timeout));
+            }
         }
 
         return call.invoke(args);
     }
 
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
 }
